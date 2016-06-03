@@ -1,0 +1,31 @@
+<!-- Creates Form -->
+<form name="polylinesIntersectionForm" class="fadeIn">
+
+    <h4 align="center">Polylines Intersection</h4>
+    <!-- Text Boxes and Other User Inputs. Note ng-model binds the values to Angular $scope -->
+    <div class="form-group">
+        <label for="poly1">First Polyline Id</label>
+        <input type="text" class="form-control" id="poly1" placeholder="I'm a polyline" ng-model="formData.poly1">
+    </div>
+
+    <div class="form-group">
+        <label for="poly2">Second Polyline Id</label>
+        <input type="text" class="form-control" id="poly2" placeholder="Maybe, I'm a polyline" ng-model="formData.poly2">
+    </div>
+
+    <!-- Query button. Note that its tied to queryUsers() function from queryCtrl.  -->
+    <button type="submit" class="btn btn-danger btn-block" ng-click="" ng-disabled="!formData.poly1.length || !formData.poly2.length">Search Intersections</button>
+    </br>
+    <div align="center">
+      <button type="button" class="btn btn-success btn-sm mLeft" ng-click="closePointsClicked()">Close Points</button>
+      <button type="button" class="btn btn-warning btn-sm " ng-click="intAreaClicked()">Inters Area</button>
+      <button type="button" class="btn btn-Info btn-sm " ng-click="closestPointClicked()">Closest Point</button>
+      <button type="button" class="btn btn-primary btn-sm " ng-click="pointsInsideAreaClicked()">Points Inside Area</button>
+    </div>
+</form>
+
+</br>
+
+<div ng-show="polyIntersectionFound" class="panel-footer fadeIn">
+  <p class="text-center">Found Intersection between {{formData.poly1}} and {{formData.poly2}}</p>
+</div>

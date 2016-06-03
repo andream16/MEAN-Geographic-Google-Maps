@@ -1,0 +1,22 @@
+<!-- Creates Form -->
+<form name="pointsInsideAreaForm" class="fadeIn">
+
+    <h4 align="center">Points Inside Area</h4>
+
+    <div class="form-group">
+        <label for="area1">Area Id</label>
+        <input type="text" class="form-control" id="area1" placeholder="Kamchatka" ng-model="formData.area1">
+    </div>
+
+    <!-- Query button. Note that its tied to queryUsers() function from queryCtrl.  -->
+    <button type="submit" class="btn btn-danger btn-block" ng-click="" ng-disabled="!formData.area1.length">Search Points inside Area</button>
+    </br>
+    <div align="center">
+      <button type="button" class="btn btn-success btn-sm mLeft" ng-click="closePointsClicked()">Close Points</button>
+      <button type="button" class="btn btn-warning btn-sm " ng-click="intAreaClicked()">Inters Area</button>
+      <button type="button" class="btn btn-Info btn-sm " ng-click="closestPointClicked()">Closest Point</button>
+      <button type="button" class="btn btn-primary btn-sm " ng-click="polyIntersectionClicked()">Polylines</button>
+    </div>
+</form>
+
+</br>

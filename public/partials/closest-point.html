@@ -1,0 +1,26 @@
+<!-- Creates Form -->
+<form name="closePointForm" class="fadeIn">
+
+    <h4 align="center">Closest Point</h4>
+    <!-- Text Boxes and Other User Inputs. Note ng-model binds the values to Angular $scope -->
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" placeholder="John Smith" ng-model="formData.username">
+    </div>
+
+    <!-- Query button. Note that its tied to queryUsers() function from queryCtrl.  -->
+    <button type="submit" class="btn btn-danger btn-block" ng-click="" ng-disabled="!formData.username">Search Closest Point</button>
+    </br>
+    <div align="center">
+      <button type="button" class="btn btn-success btn-sm mLeft" ng-click="closePointsClicked()">Close Points</button>
+      <button type="button" class="btn btn-warning btn-sm " ng-click="intAreaClicked()">Intersection Area</button>
+      <button type="button" class="btn btn-Info btn-sm " ng-click="polyIntersectionClicked()">Polylines</button>
+      <button type="button" class="btn btn-primary btn-sm " ng-click="pointsInsideAreaClicked()">Points Inside Area</button>
+    </div>
+</form>
+
+</br>
+
+<div ng-show="closestPoint" class="panel-footer fadeIn">
+  <p class="text-center">The closest point of {{formData.username}} is {{closestPoint}} </p>
+</div>

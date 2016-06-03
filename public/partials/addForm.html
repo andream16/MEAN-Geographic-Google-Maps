@@ -1,0 +1,35 @@
+<!-- Side Panel -->
+<div class="col-md-5">
+    <div class="panel panel-default">
+        <!-- Panel Title -->
+        <div class="panel-heading">
+            <h2 class="panel-title text-center">Add New Items
+                <span class="glyphicon glyphicon-map-marker"></span>
+            </h2>
+        </div>
+        <!-- Panel Body -->
+        <div class="panel-body fadeIn">
+            <!-- Creates Form (novalidate disables HTML validation, Angular will control) -->
+            <form name="addForm" novalidate>
+                <!-- Text Boxes and Other User Inputs. Note ng-model binds the values to Angular $scope -->
+                <div class="form-group">
+                    <label for="username">Username
+                        <span class="badge">All fields required</span>
+                    </label>
+                    <input type="text" class="form-control" id="username" placeholder="OldandGold" ng-model="formData.username" required>
+                </div>
+                <div class="form-group">
+                    <label for="latitude">Latitude</label>
+                    <input type="text" class="form-control" id="latitude" value="39.500" ng-model="formData.latitude" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="longitude">Longitude</label>
+                    <input type="text" class="form-control" id="longitude" value="-98.350" ng-model="formData.longitude" readonly>
+                </div>
+
+                <!-- Submit Creates An User but only if the Form has been fully filled.  -->
+                <button type="submit" class="btn btn-danger btn-block" ng-click="createUser()" ng-disabled="addForm.$invalid">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
