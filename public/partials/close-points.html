@@ -15,11 +15,10 @@
         <input type="text" class="form-control" id="distance" placeholder="500" ng-model="formData.distance">
     </div>
 
-    
+
     <button type="submit" class="btn btn-danger btn-block" ng-click="queryClosestPoints()" ng-disabled="!formData.distance">Search Close Points</button>
 </br>
 <div align="center">
-    <button type="button" class="btn btn-success btn-sm" ng-click="closestPointClicked()">Closest Point</button>
     <button type="button" class="btn btn-warning btn-sm" ng-click="intAreaClicked()">Intersection Area</button>
     <button type="button" class="btn btn-Info btn-sm" ng-click="polyIntersectionClicked()">Polylines</button>
     <button type="button" class="btn btn-primary btn-sm " ng-click="pointsInsideAreaClicked()">Points Inside Area</button>
@@ -32,5 +31,5 @@
 <div ng-show="queryCount>0" class="panel-footer fadeIn">
 <p class="text-center">We Found
 {{queryCount}}
-Neighbours.</p>
+{{neighbours}}.</p>
 </div>

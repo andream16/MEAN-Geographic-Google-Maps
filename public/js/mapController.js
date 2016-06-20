@@ -42,10 +42,10 @@ mapController.controller('mapController', function($scope, $http, $rootScope, ge
     var long = 0;
 
     // Set initial coordinates to the center of the US
-    $scope.formData.latitude;
-    $scope.formData.longitude;
+    $scope.formData.latitude = 39.500;
+    $scope.formData.longitude = -98.350;
 
-    // Get User's actual coordinates based on HTML5 at window load
+    // Get Point's actual coordinates based on HTML5 at window load
     geolocation.getLocation().then(function(data){
 
         // Set the latitude and longitude equal to the HTML5 coordinates
@@ -73,23 +73,17 @@ mapController.controller('mapController', function($scope, $http, $rootScope, ge
     // Functions
     // ----------------------------------------------------------------------------
     // Creates a new user based on the form fields
-    $scope.createUser = function($rootScope, $on) {
+    $scope.createPoint = function($rootScope, $on) {
+
         // Grabs all of the text box fields
         var userData = {
             name: $scope.formData.username,
-            location: {
-                        type: "Point",
-                        coordinates: [parseFloat($scope.formData.latitude), parseFloat($scope.formData.longitude)]
-            }
+            coordinates: [$scope.formData.latitude, $scope.formData.longitude]
         };
 
-        console.log(JSON.stringify(userData));
-
         // Saves the user data to the db
-        $http.post('/objects', userData)
+        $http.post('/geoObjects', userData)
             .success(function(data) {
-
-               console.log("Successfully Created "+JSON.stringify(data));
 
                 // Once complete, clear the form (except location)
                 $scope.formData.username = "";

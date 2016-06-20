@@ -7,78 +7,93 @@ module.exports = function(app) {
 
     // GET Routes
     // --------------------------------------------------------
-    // Retrieve records for all Objects in the db
-    app.get('/objects', function(req, res) {
+    // Retrieve records for all points in the db
+    app.get('/geoObjects', function(req, res) {
 
         // Uses Mongoose schema to run the search (empty conditions)
         var query = GeoObjects.find({});
         query.exec(function(err, geoObjects) {
             if (err){
-              return res.send(err);
+              res.send(err);
+              return;
             }
 
-            // If no errors are found, it responds with a JSON of all Objects
+            // If no errors are found, it responds with a JSON of all points
             res.json(geoObjects);
         });
     });
 
     // POST Routes
     // --------------------------------------------------------
-    // Provides method for saving new Objects in the db
-    app.post('/objects', function(req, res) {
+    // Provides method for saving new points in the db
+    app.post('/geoObjects', function(req, res) {
 
-        // Creates a new User based on the Mongoose schema and the post bo.dy
-        var newGeoObject = new GeoObjects(req.body);
-        console.log("New User "+JSON.stringify(newGeoObject));
+        // Creates a new Point based on the Mongoose schema and the post body
+        var newObj = new GeoObjects(req.body);
 
-        // New User is saved in the db.
-        newGeoObject.save(function(err) {
-            if (err){
-              return res.send(err);
-            }
+        // New Points is saved in the db.
+        newObj.save(function(err) {
+          if (err){
+            res.send(err);
+            return;
+          }
 
-            // If no errors are found, it responds with a JSON of the new user
+            // If no errors are found, it responds with a JSON of the new point
             res.json(req.body);
         });
     });
 
-    // Retrieves JSON records for all Points Closest to a given point
+    // Retrieves JSON records for all points who meet a certain set of query conditions
     app.post('/query/', function(req, res) {
 
         // Grab all of the query parameters from the body.
         var lat = req.body.latitude;
         var long = req.body.longitude;
-        var distance = parseFloat(req.body.distance);
+        var distance = req.body.distance;
 
-        console.log(lat,long,distance);
+        // Check if distance is valid
+        if (distance !== 'undefined' && distance !== 'null' && (distance/distance)===1){
 
-        var points = GeoObjects.find({'location.type':'Point'});
+            // Opens a generic Mongoose Query. Depending on the post body we will...
+            var query = GeoObjects.find({'type':'Point'});
 
-        if (distance) {
-            var query = points.near('coordinates', {
-                          center: {
-                            type: 'Point',
-                            coordinates: [parseFloat(lat), parseFloat(long)]
-                          },
-                          // Converting meters to miles
-                          maxDistance: distance * 1609.34,
-                          spherical: true
+            // Using MongoDB's geospatial querying features. (Note how coordinates are set [long, lat]
+            query = query.where('coordinates').near({
+                center: {
+                    type: 'Point',
+                    coordinates: [lat, long]
+                },
+
+                // Converting meters to miles. Specifying spherical geometry (for globe)
+                maxDistance: distance * 1609.34,
+                spherical: true
             });
         }
 
         // Execute Query and Return the Query Results
         query.exec(function(err, geoObjects) {
             if (err){
-              res.send(err);
+                res.send(err);
             }
-            if (!geoObjects) {
-              console.log(JSON.stringify(geoObjects));
-
-            }else {
-              // If no errors, respond with a JSON of all Objects that meet the criteria
-              res.json(geoObjects);
-              console.log(JSON.stringify(geoObjects));
-            }
+            // If no errors, respond with a JSON of all points that meet the criteria
+            res.json(geoObjects);
         });
     });
+
+    /*
+    app.post('/pointsWithinArea', function (req, res){
+
+      var areaId = req.body.areaId;
+      var area = GeoObjects.find('type':'Polygon', 'name':'areaId');
+
+      result = area.where('coordinates').geoIntersects({'geometry': {'type':'Point'}});
+
+      result.exec(function(err, within){
+        if (err) {
+          res.send(err);
+        }
+        res.json(within);
+      });
+    });*/
+
 };

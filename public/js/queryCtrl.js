@@ -55,6 +55,11 @@ queryCtrl.controller('queryCtrl', function($scope, $log, $http, $rootScope, geol
                 gservice.refresh(queryBody.latitude, queryBody.longitude, queryResults);
                 // Count the number of records retrieved for the panel-footer
                 $scope.queryCount = queryResults.length;
+                if ($scope.queryCount===1) {
+                  $scope.neighbours = 'Neighbour';
+                } else if ($scope.queryCount > 1) {
+                  $scope.neighbours = 'Neighbours';
+                }
             })
             .error(function(queryResults) {
                 console.log('Error ' + JSON.stringify(parseFloat(queryResults)));

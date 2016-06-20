@@ -6,10 +6,6 @@ angular.module('gservice', [])
         // -------------------------------------------------------------
         // Service our factory will return
         var googleMapService = {};
-        var selectedLat = 33.003;
-        var selectedLong = 8.995;
-        //Declaring Google Map to be used by external functions
-        var map = null;
 
         // Handling Clicks and location selection
         googleMapService.clickLat = 0;
@@ -18,8 +14,11 @@ angular.module('gservice', [])
         // Array of locations obtained from API calls
         var locations = [];
 
-        // Selected Location
+        // Selected Location (initialize to center of America)
+        var selectedLat = 39.036;
+        var selectedLong = 8.994;
 
+        var map = null;
 
         // Functions
         // --------------------------------------------------------------
@@ -47,8 +46,9 @@ angular.module('gservice', [])
             else {
 
                 // Perform an AJAX call to get all of the records in the db.
-                $http.get('/objects').success(function(response) {
+                $http.get('/geoObjects').success(function(response) {
 
+                    //console.log("Found Points: "+JSON.stringify(response));
                     // Then convert the results into map points
                     locations = convertToMapPoints(response);
 
@@ -60,7 +60,7 @@ angular.module('gservice', [])
 
         // Private Inner Functions
         // --------------------------------------------------------------
-        // Convert a JSON of users into map points
+        // Convert a JSON of points into map points
         var convertToMapPoints = function(response) {
 
             // Clear the locations holder
@@ -68,43 +68,50 @@ angular.module('gservice', [])
 
             // Loop through all of the JSON entries provided in the response
             for (var i = 0; i < response.length; i++) {
-                var user = response[i];
+                var geoObjects = response[i];
+
+                //console.log("Type: "+geoObjects.type+" coordinates: "+geoObjects.coordinates+" length: "+geoObjects.coordinates.length);
 
                 //If it is a Point
-                if (user.location.type === "Point") {
+                if (geoObjects.type === 'Point') {
                     // Create popup windows for each record
                     var contentString =
-                        '<p><b>Username</b>: ' + user.name + '</br>' +
-                        '<b>Type</b>: ' + user.location.type + '</br>' +
-                        '<b>Lat</b>: ' + user.location.coordinates[0] + '</br>' +
-                        '<b>Long</b>: ' + user.location.coordinates[1] +
+                        '<p><b>Username</b>: ' + geoObjects.name + '</br>' +
+                        '<b>Type</b>: ' + geoObjects.type + '</br>' +
+                        '<b>Lat</b>: ' + geoObjects.coordinates[0] + '</br>' +
+                        '<b>Long</b>: ' + geoObjects.coordinates[1] +
                         '</p>';
 
                     // Converts each of the JSON records into Google Maps Location format (Note [Lat, Lng] format).
                     locations.push({
-                        latlon: new google.maps.LatLng(user.location.coordinates[0], user.location.coordinates[1]),
+                        latlon: new google.maps.LatLng(geoObjects.coordinates[0], geoObjects.coordinates[1]),
                         message: new google.maps.InfoWindow({
                             content: contentString,
                             maxWidth: 320
                         }),
-                        username: user.name,
+                        username: geoObjects.name,
                     });
                 }
-
+                /*
                 //If type is a LineString, Call addPolylyne
-                if (user.location.type === "LineString") {
-                    addPolyline(user.location.coordinates, map);
+                if (geoObjects.type === 'LineString') {
+                  coords = geoObjects.coordinates;
+                  console.log(coords);
+                  addPolyline(coords, map);
                 }
 
                 //If type is a Polygon, Call addPolygon
-                if (user.location.type === "Polygon") {
-                    addPolygon(user.location.coordinates, map);
+                if (geoObjects.type === 'Polygon') {
+                  coords = geoObjects.coordinates;
+                  addPolygon(coords, map);
                 };
+                */
 
             }
             // location is now an array populated with records in Google Maps format, only for points
             return locations;
         };
+
 
         //Function that draws Polylines
         function addPolyline(coords, map) {
@@ -163,8 +170,8 @@ angular.module('gservice', [])
 
         // Initializes the map
         var initialize = function(latitude, longitude, filter) {
-            // Uses the selected lat, long as starting point
 
+            // Uses the selected lat, long as starting point
             var myLatLng = {
                 lat: selectedLat,
                 lng: selectedLong
@@ -174,7 +181,7 @@ angular.module('gservice', [])
             if (!map) {
 
                 // Create a new map and place in the index.html page
-                map = new google.maps.Map(document.getElementById('map'), {
+                var map = new google.maps.Map(document.getElementById('map'), {
                     zoom: 3,
                     center: new google.maps.LatLng(selectedLat, selectedLong)
                 });
@@ -205,19 +212,15 @@ angular.module('gservice', [])
                 });
             });
 
-
             // Set initial location as a bouncing red marker
             var initialLocation = new google.maps.LatLng(latitude, longitude);
-
-
-                var marker = new google.maps.Marker({
-                    position: initialLocation,
-                    animation: google.maps.Animation.BOUNCE,
-                    map: map,
-                    icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
-                });
-                lastMarker = marker;
-
+            var marker = new google.maps.Marker({
+                position: initialLocation,
+                animation: google.maps.Animation.BOUNCE,
+                map: map,
+                icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
+            });
+            lastMarker = marker;
 
             // Function for moving to a selected location
             map.panTo(new google.maps.LatLng(latitude, longitude));
@@ -237,9 +240,8 @@ angular.module('gservice', [])
                 }
 
                 // Create a new red bouncing marker and move to it
-                  lastMarker = marker;
-                  map.panTo(marker.position);
-
+                lastMarker = marker;
+                map.panTo(marker.position);
 
                 // Update Broadcasted Variable (lets the panels know to change their lat, long values)
                 googleMapService.clickLat = marker.getPosition().lat();

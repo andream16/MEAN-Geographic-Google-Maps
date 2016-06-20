@@ -1,0 +1,106 @@
+{
+  "_args": [
+    [
+      "geojson",
+      "/home/andream16/Documents/MEAN-Geographic-Google-Maps"
+    ]
+  ],
+  "_from": "geojson@latest",
+  "_id": "geojson@0.3.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/geojson",
+  "_npmOperationalInternal": {
+    "host": "packages-9-west.internal.npmjs.com",
+    "tmp": "tmp/geojson-0.3.0.tgz_1455373858529_0.5158811365254223"
+  },
+  "_npmUser": {
+    "email": "cpthomas@gmail.com",
+    "name": "caseypt"
+  },
+  "_npmVersion": "1.4.23",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "geojson",
+    "raw": "geojson",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "http://registry.npmjs.org/geojson/-/geojson-0.3.0.tgz",
+  "_shasum": "7174ae55e6027a006462a4fb6950309e972e67ed",
+  "_shrinkwrap": null,
+  "_spec": "geojson",
+  "_where": "/home/andream16/Documents/MEAN-Geographic-Google-Maps",
+  "author": {
+    "email": "caseypthomas@gmail.com",
+    "name": "Casey Thomas"
+  },
+  "bugs": {
+    "url": "https://github.com/caseypt/geojson.js/issues"
+  },
+  "dependencies": {},
+  "description": "Convert an array of geographic objects to GeoJSON",
+  "devDependencies": {
+    "expect.js": "*",
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-lib-phantomjs": "~0.3.1",
+    "grunt-mocha": "~0.3.4",
+    "grunt-simple-mocha": "~0.4.0",
+    "mocha": "*"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "7174ae55e6027a006462a4fb6950309e972e67ed",
+    "tarball": "https://registry.npmjs.org/geojson/-/geojson-0.3.0.tgz"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "gitHead": "b0bd84c79faf2ecc94fbab6fdaa9b4943adc0c2e",
+  "homepage": "https://github.com/caseypt/geojson.js",
+  "keywords": [
+    "geojson"
+  ],
+  "license": "MIT",
+  "main": "./geojson",
+  "maintainers": [
+    {
+      "email": "cpthomas@gmail.com",
+      "name": "caseypt"
+    }
+  ],
+  "name": "geojson",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/caseypt/geojson.js.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "version": "0.3.0",
+  "warnings": [
+    {
+      "code": "ENOTSUP",
+      "pkgid": "geojson@0.3.0",
+      "required": {
+        "node": "0.10.x"
+      }
+    },
+    {
+      "code": "ENOTSUP",
+      "pkgid": "geojson@0.3.0",
+      "required": {
+        "node": "0.10.x"
+      }
+    }
+  ]
+}
