@@ -1,7 +1,7 @@
 <!-- Creates Form -->
 <form name="searchPointsForm" class="fadeIn">
     <h4 align="center">Close Points</h4>
-    <!-- Text Boxes and Other User Inputs. Note ng-model binds the values to Angular $scope -->
+
     <div class="form-group">
         <label for="latitude">Your Latitude</label>
         <input type="text" class="form-control" id="latitude" placeholder="39.5" ng-model="formData.latitude" readonly>
@@ -15,8 +15,8 @@
         <input type="text" class="form-control" id="distance" placeholder="500" ng-model="formData.distance">
     </div>
 
-    <!-- Query button. Note that its tied to queryUsers() function from queryCtrl.  -->
-    <button type="submit" class="btn btn-danger btn-block" ng-click="queryUsers()" ng-disabled="!formData.distance">Search Close Points</button>
+    
+    <button type="submit" class="btn btn-danger btn-block" ng-click="queryClosestPoints()" ng-disabled="!formData.distance">Search Close Points</button>
 </br>
 <div align="center">
     <button type="button" class="btn btn-success btn-sm" ng-click="closestPointClicked()">Closest Point</button>
