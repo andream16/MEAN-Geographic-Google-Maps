@@ -2,573 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d23598a-e6b5-424a-9e40-93ee13c0491b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/model.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/.bower.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/.gitattributes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/.jshintrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/bower.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/composer.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/gulpfile.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/holder.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/holder.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/package.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/src/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/src/lib/color.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/src/lib/constants.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/src/lib/dom.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/src/lib/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/src/lib/renderers/canvas.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/src/lib/renderers/svg-dom.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/src/lib/renderers/svg-text.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/src/lib/scenegraph.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/src/lib/svg.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/src/lib/utils.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/src/lib/vendor/ondomready.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/src/lib/vendor/polyfills.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/src/lib/vendor/querystring.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/src/meteor/package.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/src/meteor/shim.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/test/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/test/detach.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/test/image.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/test/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/test/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/test/phantom.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/test/renderperf/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/test/renderperf/fps.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/test/renderperf/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/test/renderperf/setup.sh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/test/renderperf/testcase.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/holderjs/test/runner.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/.bower.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/AUTHORS.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/LICENSE.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/bower.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/dist/jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/dist/jquery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/dist/jquery.min.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/external/sizzle/LICENSE.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/external/sizzle/dist/sizzle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/external/sizzle/dist/sizzle.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/external/sizzle/dist/sizzle.min.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/.jshintrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/ajax.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/ajax/jsonp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/ajax/load.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/ajax/parseJSON.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/ajax/parseXML.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/ajax/script.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/ajax/var/location.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/ajax/var/nonce.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/ajax/var/rquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/ajax/xhr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/attributes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/attributes/attr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/attributes/classes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/attributes/prop.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/attributes/support.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/attributes/val.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/callbacks.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/core.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/core/access.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/core/init.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/core/parseHTML.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/core/ready.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/core/var/rsingleTag.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/css.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/css/addGetHookIf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/css/adjustCSS.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/css/curCSS.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/css/defaultDisplay.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/css/hiddenVisibleSelectors.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/css/showHide.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/css/support.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/css/var/cssExpand.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/css/var/getStyles.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/css/var/isHidden.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/css/var/rmargin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/css/var/rnumnonpx.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/css/var/swap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/data.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/data/Data.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/data/var/acceptData.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/data/var/dataPriv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/data/var/dataUser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/deferred.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/deprecated.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/dimensions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/effects.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/effects/Tween.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/effects/animatedSelector.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/event.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/event/ajax.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/event/alias.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/event/focusin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/event/support.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/event/trigger.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/exports/amd.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/exports/global.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/intro.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/manipulation.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/manipulation/_evalUrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/manipulation/buildFragment.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/manipulation/getAll.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/manipulation/setGlobalEval.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/manipulation/support.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/manipulation/var/rcheckableType.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/manipulation/var/rscriptType.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/manipulation/var/rtagName.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/manipulation/wrapMap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/offset.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/outro.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/queue.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/queue/delay.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/selector-native.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/selector-sizzle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/selector.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/serialize.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/traversing.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/traversing/findFilter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/traversing/var/dir.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/traversing/var/rneedsContext.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/traversing/var/siblings.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/var/arr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/var/class2type.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/var/concat.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/var/document.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/var/documentElement.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/var/hasOwn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/var/indexOf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/var/pnum.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/var/push.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/var/rcssNum.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/var/rnotwhite.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/var/slice.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/var/support.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/var/toString.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/jquery/src/wrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/.bower.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/.coveralls.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/.editorconfig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/.gitattributes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/.jscsrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/.jshintignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/.jshintrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/Gruntfile.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/appveyor.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/bin/modernizr" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/a/download.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/ambientlight.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/applicationcache.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/audio.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/audio/loop.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/audio/preload.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/audio/webaudio.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/battery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/battery/lowbattery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/blob.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/canvas.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/canvas/blending.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/canvas/todataurl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/canvas/winding.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/canvastext.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/contenteditable.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/contextmenu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/cookies.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/cors.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/crypto/getrandomvalues.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/all.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/animations.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/appearance.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/backgroundblendmode.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/backgroundcliptext.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/backgroundposition-shorthand.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/backgroundposition-xy.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/backgroundrepeat.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/backgroundsize.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/backgroundsizecover.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/borderimage.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/borderradius.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/boxshadow.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/boxsizing.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/calc.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/checked.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/chunit.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/columns.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/cubicbezierrange.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/displayrunin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/displaytable.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/ellipsis.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/escape.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/exunit.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/filters.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/flexbox.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/flexboxlegacy.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/flexboxtweener.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/flexwrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/fontface.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/generatedcontent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/gradients.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/hsla.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/hyphens.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/invalid.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/lastchild.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/mask.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/mediaqueries.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/multiplebgs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/nthchild.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/objectfit.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/opacity.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/overflow-scrolling.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/pointerevents.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/positionsticky.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/pseudoanimations.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/pseudotransitions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/reflections.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/regions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/remunit.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/resize.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/rgba.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/scrollbars.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/shapes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/siblinggeneral.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/subpixelfont.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/supports.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/target.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/textalignlast.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/textshadow.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/transforms.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/transforms3d.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/transformstylepreserve3d.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/transitions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/userselect.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/valid.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/vhunit.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/vmaxunit.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/vminunit.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/vwunit.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/will-change.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/css/wrapflow.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/custom-protocol-handler.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/customevent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/dart.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/dataview-api.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/dom/classlist.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/dom/createElement-attrs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/dom/dataset.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/dom/documentfragment.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/dom/hidden.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/dom/microdata.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/dom/mutationObserver.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/elem/datalist.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/elem/details.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/elem/output.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/elem/picture.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/elem/progress-meter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/elem/ruby.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/elem/template.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/elem/time.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/elem/track.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/elem/unknown.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/emoji.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/es5/array.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/es5/date.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/es5/function.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/es5/object.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/es5/specification.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/es5/strictmode.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/es5/string.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/es5/syntax.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/es5/undefined.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/es6/array.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/es6/contains.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/es6/generators.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/es6/math.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/es6/number.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/es6/object.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/es6/promises.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/es6/string.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/event/deviceorientation-motion.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/event/oninput.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/eventlistener.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/exif-orientation.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/file/api.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/file/filesystem.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/flash.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/forms/capture.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/forms/fileinput.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/forms/fileinputdirectory.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/forms/formattribute.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/forms/inputnumber-l10n.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/forms/placeholder.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/forms/requestautocomplete.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/forms/validation.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/fullscreen-api.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/gamepad.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/geolocation.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/hashchange.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/hiddenscroll.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/history.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/htmlimports.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/ie8compat.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/iframe/sandbox.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/iframe/seamless.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/iframe/srcdoc.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/img/apng.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/img/jpegxr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/img/sizes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/img/srcset.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/img/webp-alpha.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/img/webp-animation.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/img/webp-lossless.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/img/webp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/indexeddb.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/indexeddbblob.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/input.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/input/formaction.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/input/formenctype.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/input/formmethod.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/input/formtarget.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/inputsearchevent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/inputtypes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/intl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/json.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/lists-reversed.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/mathml.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/network/beacon.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/network/connection.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/network/eventsource.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/network/fetch.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/network/xhr-responsetype-arraybuffer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/network/xhr-responsetype-blob.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/network/xhr-responsetype-document.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/network/xhr-responsetype-json.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/network/xhr-responsetype-text.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/network/xhr-responsetype.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/network/xhr2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/notification.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/pagevisibility-api.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/performance.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/pointerevents.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/pointerlock-api.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/postmessage.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/proximity.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/queryselector.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/quota-management-api.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/requestanimationframe.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/script/async.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/script/defer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/serviceworker.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/speech/speech-recognition.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/speech/speech-synthesis.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/storage/localstorage.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/storage/sessionstorage.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/storage/websqldatabase.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/style/scoped.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/svg.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/svg/asimg.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/svg/clippaths.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/svg/filters.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/svg/foreignobject.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/svg/inline.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/svg/smil.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/templatestrings.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/textarea/maxlength.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/touchevents.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/typed-arrays.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/unicode-range.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/unicode.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/url/bloburls.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/url/data-uri.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/url/parser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/userdata.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/vibration.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/video.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/video/autoplay.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/video/loop.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/video/preload.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/vml.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/web-intents.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/webanimations.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/webgl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/webgl/extensions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/webrtc/datachannel.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/webrtc/getusermedia.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/webrtc/peerconnection.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/websockets.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/websockets/binary.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/window/framed.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/window/matchmedia.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/workers/blobworkers.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/workers/dataworkers.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/workers/sharedworkers.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/workers/transferables.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/feature-detects/workers/webworkers.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/lib/.jshintrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/lib/build-query.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/lib/build.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/lib/cli.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/lib/config-all.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/lib/generate-banner.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/lib/metadata.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/lib/options.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/lib/polyfills.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/media/Modernizr 2 Logo vertical big.ai" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/media/Modernizr 2 Logo vertical medium.ai" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/media/Modernizr 2 Logo vertical small.ai" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/media/Modernizr 2 Logo.ai" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/media/Modernizr 2 Logo.eps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/media/Modernizr 2 Logo.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/media/Modernizr 2 Logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/media/Modernizr 2 Logo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/media/Modernizr-2-Logo-vertical-big.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/media/Modernizr-2-Logo-vertical-medium.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/media/Modernizr-2-Logo-vertical-small.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/Modernizr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/ModernizrProto.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/addTest.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/atRule.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/classes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/contains.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/createElement.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/cssToDOM.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/cssomPrefixes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/docElement.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/domPrefixes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/domToCSS.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/fnBind.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/generate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/getBody.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/hasEvent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/hasOwnProp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/html5printshiv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/html5shiv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/injectElementWithStyles.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/inputElem.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/is.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/isSVG.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/load.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/mStyle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/modElem.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/mq.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/nativeTestProps.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/omPrefixes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/prefixed.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/prefixedCSS.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/prefixes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/roundedEquals.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/setClasses.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/slice.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/testAllProps.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/testDOMProps.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/testProp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/testProps.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/testPropsAll.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/testRunner.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/testStyles.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/testXhrType.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/tests.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/src/toStringFn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/.jshintrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/iframe.jade" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/integration.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/integration.jade" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/integration/bools.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/integration/caniuse.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/integration/classes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/integration/global.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/integration/iframe.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/integration/prefixed-atRule.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/integration/prefixed-autobind.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/integration/prefixed.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/integration/prefixedCSS.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/integration/svg.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/sauce-browsers.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/setup.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/Modernizr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/ModernizrProto.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/addTest.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/atRule.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/classes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/contains.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/createElement.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/cssToDOM.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/cssomPrefixes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/docElement.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/domPrefixes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/domToCSS.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/fnBind.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/generate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/getBody.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/hasEvent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/hasOwnProp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/html5printshiv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/html5shiv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/injectElementWithStyles.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/inputElem.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/is.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/load.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/mStyle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/modElem.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/mq.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/nativeTestProps.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/omPrefixes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/prefixed.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/prefixedCSS.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/prefixes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/roundedEquals.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/setClasses.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/slice.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/testAllProps.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/testDOMProps.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/testProp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/testProps.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/testPropsAll.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/testRunner.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/testStyles.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/testXhrType.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/tests.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/src/toStringFn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/svgUnit.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/browser/unit.jade" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/cleanup.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/img/integration.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/img/unit.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/js/lib/sinon.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/js/lib/uaparser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/mocks/lib/build-query.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/mocks/lib/metadata.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/node/lib/build.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/node/lib/cli.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/node/lib/metadata.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/node/lib/options.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/universal/lib/build-hash.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/modernizr/test/universal/lib/generate-banner.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/geojson/geojson.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/geojson/geojson.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/geojson/package.json" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.js" afterPath="$PROJECT_DIR$/app/routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/gservice.js" afterPath="$PROJECT_DIR$/public/js/gservice.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/mapController.js" afterPath="$PROJECT_DIR$/public/js/mapController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/partials/area-intersection.html" afterPath="$PROJECT_DIR$/public/partials/area-intersection.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/partials/close-points.html" afterPath="$PROJECT_DIR$/public/partials/close-points.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/partials/points-inside-area.html" afterPath="$PROJECT_DIR$/public/partials/points-inside-area.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/partials/polylines-intersection.html" afterPath="$PROJECT_DIR$/public/partials/polylines-intersection.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/style.css" afterPath="$PROJECT_DIR$/public/style.css" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bower_components/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/.gitignore" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MEAN-Geographic-Google-Maps.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -588,6 +24,20 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="MEAN-Geographic-Google-Maps" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="810">
+              <caret line="45" column="70" selection-start-line="45" selection-start-column="70" selection-end-line="45" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -647,14 +97,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MEAN-Geographic-Google-Maps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MEAN-Geographic-Google-Maps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DB" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
@@ -684,6 +148,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -718,30 +188,31 @@
       <option name="presentableId" value="Default" />
       <updated>1470648195687</updated>
       <workItem from="1470648196884" duration="1889000" />
+      <workItem from="1470672711177" duration="444000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1889000" />
+    <option name="totallyTimeSpent" value="2333000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1919" y="13" width="1922" height="1055" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15416667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15416667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -760,5 +231,15 @@
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="45" column="70" selection-start-line="45" selection-start-column="70" selection-end-line="45" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
