@@ -1,0 +1,9 @@
+/.jshintrc
+/bs-commonjs-generator.js
+/bs-glyphicons-data-generator.js
+/bs-lessdoc-parser.js
+/bs-raw-files-generator.js
+/change-version.js
+/configBridge.json
+/npm-shrinkwrap.json
+/sauce_browsers.yml
