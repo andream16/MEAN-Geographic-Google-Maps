@@ -4,28 +4,28 @@
     <!-- Text Boxes and Other User Inputs. Note ng-model binds the values to Angular $scope -->
     <div class="form-group">
         <label for="areaId1">First Area Id</label>
-        <input type="text" class="form-control" id="areaId1" placeholder="Lost Place" ng-model="formData.areaId1">
+        <input type="text" class="form-control" id="areaId1" placeholder="Lost Place" ng-model="queryCtrl.formData.areaId1">
     </div>
     <div class="form-group">
         <label for="areaId2">Second Area Id</label>
-        <input type="text" class="form-control" id="areaId2" placeholder="Black Forest" ng-model="formData.areaId2">
+        <input type="text" class="form-control" id="areaId2" placeholder="Black Forest" ng-model="queryCtrl.formData.areaId2">
     </div>
 
-    <button type="submit" class="btn btn-danger btn-block" ng-click="" ng-disabled="!formData.areaId1.length || !formData.areaId2.length">Look for Intersections</button>
+    <button type="submit" class="btn btn-danger btn-block" ng-click="" ng-disabled="!queryCtrl.formData.areaId1.length || !queryCtrl.formData.areaId2.length">Look for Intersections</button>
 </br>
 <div align="center">
-    <button type="button" class="btn btn-warning btn-sm " ng-click="closePointsClicked()">Close Points</button>
-    <button type="button" class="btn btn-Info btn-sm " ng-click="polyIntersectionClicked()">Polylines</button>
-    <button type="button" class="btn btn-primary btn-sm " ng-click="pointsInsideAreaClicked()">Points Inside Area</button>
+    <button type="button" class="btn btn-warning btn-md " ng-click="queryCtrl.goToView('Close Points')">Close Points</button>
+    <button type="button" class="btn btn-Info btn-md "    ng-click="queryCtrl.goToView('Polyline Intersection')">Polylines</button>
+    <button type="button" class="btn btn-primary btn-md " ng-click="queryCtrl.goToView('Points Inside Area')">Points Inside Area</button>
 </div>
 
 </form>
 
 </br>
 
-<div ng-show="areaIntersection" class="panel-footer fadeIn">
+<div ng-show="queryCtrl.areaIntersection" class="panel-footer fadeIn">
 <p class="text-center">We Found an intersection between
-{{formData.areaId1}}
+{{queryCtrl.formData.areaId1}}
 and
-{{formData.areaId2}}</p>
+{{queryCtrl.formData.areaId2}}</p>
 </div>

@@ -1,0 +1,8 @@
+{
+  "template": {
+    "close-points"          : "partials/close-points.html",
+    "area-intersection"     : "partials/area-intersection.html",
+    "polyline-intersection" : "partials/polylines-intersection.html",
+    "points-inside-area"    : "partials/points-inside-area.html"
+  }
+}

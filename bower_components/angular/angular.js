@@ -303,7 +303,7 @@ function isArrayLike(obj) {
  * Providing 'undefined' or 'null' values for `obj` will not throw a TypeError, but rather just
  * return the value provided.
  *
-   ```js
+   ```controller
      var values = {name: 'misko', gender: 'male'};
      var log = [];
      angular.forEach(values, function(value, key) {
@@ -504,7 +504,7 @@ function inherit(parent, extra) {
  * @description
  * A function that performs no operations. This function can be useful when writing code in the
  * functional style.
-   ```js
+   ```controller
      function foo(callback) {
        var result = calculateResult();
        (callback || angular.noop)(result);
@@ -525,7 +525,7 @@ noop.$inject = [];
  * A function that returns its first argument. This function is useful when writing code in the
  * functional style.
  *
-   ```js
+   ```controller
      function transformer(transformationFn, value) {
        return (transformationFn || angular.identity)(value);
      };
@@ -1598,7 +1598,7 @@ function angularInit(element, bootstrap) {
  *   {{greeting}}
  * </div>
  *
- * <script src="angular.js"></script>
+ * <script src="angular.controller"></script>
  * <script>
  *   var app = angular.module('demo', [])
  *   .controller('WelcomeController', function($scope) {
@@ -2112,7 +2112,7 @@ function setupModuleLoader(window) {
            * Defines an animation hook that can be later used with
            * {@link $animate $animate} service and directives that use this service.
            *
-           * ```js
+           * ```controller
            * module.animation('.animation-name', function($inject1, $inject2) {
            *   return {
            *     eventName : function(element, done) {
@@ -4848,7 +4848,7 @@ var $$CoreAnimateRunnerProvider = function() {
 };
 
 // this is prefixed with Core since it conflicts with
-// the animateQueueProvider defined in ngAnimate/animateQueue.js
+// the animateQueueProvider defined in ngAnimate/animateQueue.controller
 var $$CoreAnimateQueueProvider = function() {
   var postDigestQueue = new HashMap();
   var postDigestElements = [];
@@ -4979,7 +4979,7 @@ var $AnimateProvider = ['$provide', function($provide) {
    *
    *   Make sure to trigger the `doneFunction` once the animation is fully complete.
    *
-   * ```js
+   * ```controller
    *   return {
    *     //enter, leave, move signature
    *     eventFn : function(element, done, options) {
@@ -5080,7 +5080,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        *    has fired on the given element or among any of its children. Once the listener is fired, the provided callback
        *    is fired with the following params:
        *
-       * ```js
+       * ```controller
        * $animate.on('enter', container,
        *    function callback(element, phase) {
        *      // cool we detected an enter animation within the container
@@ -5107,7 +5107,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        * @description Deregisters an event listener based on the event which has been associated with the provided element. This method
        * can be used in three different ways depending on the arguments:
        *
-       * ```js
+       * ```controller
        * // remove all the animation event listeners listening for `enter`
        * $animate.off('enter');
        *
@@ -5151,7 +5151,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        * @description Used to get and set whether animations are enabled or not on the entire application or on an element and its children. This
        * function can be called in four ways:
        *
-       * ```js
+       * ```controller
        * // returns true or false
        * $animate.enabled();
        *
@@ -11655,7 +11655,7 @@ var locationPrototype = {
    * [RFC 3986](http://www.ietf.org/rfc/rfc3986.txt).
    *
    *
-   * ```js
+   * ```controller
    * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
    * var absUrl = $location.absUrl();
    * // => "http://example.com/#/some/path?foo=bar&baz=xoxo"
@@ -11677,7 +11677,7 @@ var locationPrototype = {
    * Change path, search and hash, when called with parameter and return `$location`.
    *
    *
-   * ```js
+   * ```controller
    * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
    * var url = $location.url();
    * // => "/some/path?foo=bar&baz=xoxo"
@@ -11709,7 +11709,7 @@ var locationPrototype = {
    * Return protocol of current url.
    *
    *
-   * ```js
+   * ```controller
    * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
    * var protocol = $location.protocol();
    * // => "http"
@@ -11731,7 +11731,7 @@ var locationPrototype = {
    * Note: compared to the non-angular version `location.host` which returns `hostname:port`, this returns the `hostname` portion only.
    *
    *
-   * ```js
+   * ```controller
    * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
    * var host = $location.host();
    * // => "example.com"
@@ -11757,7 +11757,7 @@ var locationPrototype = {
    * Return port of current url.
    *
    *
-   * ```js
+   * ```controller
    * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
    * var port = $location.port();
    * // => 80
@@ -11782,7 +11782,7 @@ var locationPrototype = {
    * if it is missing.
    *
    *
-   * ```js
+   * ```controller
    * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
    * var path = $location.path();
    * // => "/some/path"
@@ -11808,7 +11808,7 @@ var locationPrototype = {
    * Change search part when called with parameter and return `$location`.
    *
    *
-   * ```js
+   * ```controller
    * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
    * var searchObject = $location.search();
    * // => {foo: 'bar', baz: 'xoxo'}
@@ -11886,7 +11886,7 @@ var locationPrototype = {
    * Change hash fragment when called with parameter and return `$location`.
    *
    *
-   * ```js
+   * ```controller
    * // given url http://example.com/#/some/path?foo=bar&baz=xoxo#hashValue
    * var hash = $location.hash();
    * // => "hashValue"
@@ -14783,7 +14783,7 @@ function qFactory(nextTick, exceptionHandler) {
    * current promise, you have to "rethrow" the error by returning a rejection constructed via
    * `reject`.
    *
-   * ```js
+   * ```controller
    *   promiseB = promiseA.then(function(result) {
    *     // success: do something and resolve promiseB
    *     //          with the old or a new result
@@ -15096,7 +15096,7 @@ function $RootScopeProvider() {
      *
      * # Inheritance
      * A scope can inherit from a parent scope, as in this example:
-     * ```js
+     * ```controller
          var parent = $rootScope;
          var child = parent.$new();
 
@@ -15268,7 +15268,7 @@ function $RootScopeProvider() {
        *
        *
        * # Example
-       * ```js
+       * ```controller
            // let's assume that scope was dependency injected as the $rootScope
            var scope = $rootScope;
            scope.name = 'misko';
@@ -15480,7 +15480,7 @@ function $RootScopeProvider() {
        *
        *
        * # Example
-       * ```js
+       * ```controller
           $scope.names = ['igor', 'matias', 'misko', 'james'];
           $scope.dataCount = 4;
 
@@ -15676,7 +15676,7 @@ function $RootScopeProvider() {
        * In unit tests, you may need to call `$digest()` to simulate the scope life cycle.
        *
        * # Example
-       * ```js
+       * ```controller
            var scope = ...;
            scope.name = 'misko';
            scope.counter = 0;
@@ -15901,7 +15901,7 @@ function $RootScopeProvider() {
        * expressions.
        *
        * # Example
-       * ```js
+       * ```controller
            var scope = ng.$rootScope.Scope();
            scope.a = 1;
            scope.b = 2;
@@ -15985,7 +15985,7 @@ function $RootScopeProvider() {
        * ## Life cycle
        *
        * # Pseudo-Code of `$apply()`
-       * ```js
+       * ```controller
            function $apply(expr) {
              try {
                return $eval(expr);
@@ -16419,7 +16419,7 @@ var SCE_CONTEXTS = {
   // RESOURCE_URL is a subtype of URL used in contexts where a privileged resource is sourced from a
   // url.  (e.g. ng-include, script src, templateUrl)
   RESOURCE_URL: 'resourceUrl',
-  JS: 'js'
+  JS: 'controller'
 };
 
 // Helper functions follow.
@@ -16681,7 +16681,7 @@ function $SceDelegateProvider() {
      * See {@link ng.$sce $sce} for enabling strict contextual escaping.
      *
      * @param {string} type The kind of context in which this value is safe for use.  e.g. url,
-     *   resourceUrl, html, js and css.
+     *   resourceUrl, html, controller and css.
      * @param {*} value The value that that should be considered trusted/safe.
      * @returns {*} A value that can be used to stand in for the provided `value` in places
      * where Angular expects a $sce.trustAs() return value.
@@ -17125,7 +17125,7 @@ function $SceProvider() {
    *
    * Inheritance happens to capture this in a natural way.  In some future, we
    * may not use inheritance anymore.  That is OK because no code outside of
-   * sce.js and sceSpecs.js would need to be aware of this detail.
+   * sce.controller and sceSpecs.controller would need to be aware of this detail.
    */
 
   this.$get = ['$parse', '$sceDelegate', function(

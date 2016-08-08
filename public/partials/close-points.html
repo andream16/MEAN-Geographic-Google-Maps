@@ -4,32 +4,32 @@
 
     <div class="form-group">
         <label for="latitude">Your Latitude</label>
-        <input type="text" class="form-control" id="latitude" placeholder="39.5" ng-model="formData.latitude" readonly>
+        <input type="text" class="form-control" id="latitude" placeholder="39.5" ng-model="queryCtrl.formData.latitude" readonly>
     </div>
     <div class="form-group">
         <label for="longitude">Your Longitude</label>
-        <input type="text" class="form-control" id="longitude" placeholder="-98.35" ng-model="formData.longitude" readonly>
+        <input type="text" class="form-control" id="longitude" placeholder="-98.35" ng-model="queryCtrl.formData.longitude" readonly>
     </div>
     <div class="form-group">
         <label for="distance">Max. Distance (miles)</label>
-        <input type="text" class="form-control" id="distance" placeholder="500" ng-model="formData.distance">
+        <input type="text" class="form-control" id="distance" placeholder="500" ng-model="queryCtrl.formData.distance">
     </div>
 
 
-    <button type="submit" class="btn btn-danger btn-block" ng-click="queryClosestPoints()" ng-disabled="!formData.distance">Search Close Points</button>
+    <button type="submit" class="btn btn-danger btn-block" ng-click="queryCtrl.findClosestPoints()" ng-disabled="!queryCtrl.formData.distance">Search Close Points</button>
 </br>
 <div align="center">
-    <button type="button" class="btn btn-warning btn-sm" ng-click="intAreaClicked()">Intersection Area</button>
-    <button type="button" class="btn btn-Info btn-sm" ng-click="polyIntersectionClicked()">Polylines</button>
-    <button type="button" class="btn btn-primary btn-sm " ng-click="pointsInsideAreaClicked()">Points Inside Area</button>
+    <button type="button" class="btn btn-warning btn-md" ng-click="queryCtrl.goToView('Area Intersection')">Intersection Area</button>
+    <button type="button" class="btn btn-Info btn-md" ng-click="queryCtrl.goToView('Polyline Intersection')">Polylines</button>
+    <button type="button" class="btn btn-primary btn-md " ng-click="queryCtrl.goToView('Points Inside Area')">Points Inside Area</button>
 </div>
 </form>
 
 </br>
 
 <!-- Footer panel for displaying count. Note how it will only display if queryCount is greater than 0 -->
-<div ng-show="queryCount>0" class="panel-footer fadeIn">
+<div ng-show="queryCtrl.queryCount>0" class="panel-footer fadeIn">
 <p class="text-center">We Found
-{{queryCount}}
-{{neighbours}}.</p>
+{{queryCtrl.queryCount}}
+{{queryCtrl.neighbours}}.</p>
 </div>

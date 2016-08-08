@@ -4,7 +4,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     jshint: {
-      files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
+      files: ['Gruntfile.controller', 'src/**/*.controller', 'test/**/*.controller'],
       options: {
         // options here to override JSHint defaults
         globalstrict: true,
@@ -29,13 +29,13 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'dist/<%= pkg.name %>.min.js': 'src/geolocation.js'
+          'dist/<%= pkg.name %>.min.js': 'src/geolocation.controller'
         }
       }
     },
     karma: {
       unit: {
-        configFile: 'karma.conf.js'
+        configFile: 'karma.conf.controller'
       }
     }
   });
