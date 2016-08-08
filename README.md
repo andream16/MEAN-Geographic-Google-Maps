@@ -1,10 +1,10 @@
 # MEAN-Geographic-Google-Maps
-DB Project for Data Bases 2 Exam
+## DB Project for Data Bases 2 Exam
 
 What you need to run the project:
- -Node ~^4.4.7
- -NPM ~^2.15
- -MongoDB ~^3.2.7
+ - Node ~^4.4.7
+ - NPM ~^2.15
+ - MongoDB ~^3.2.7
  
 How to install bower and npm packages:
  - Go on Project's folder
