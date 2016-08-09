@@ -6,6 +6,7 @@ var port            = process.env.PORT || 3000;
 var morgan          = require('morgan');
 var bodyParser      = require('body-parser');
 var methodOverride  = require('method-override');
+var _               = require('lodash');
 var app             = express();
 
 // Express Configuration
@@ -28,6 +29,8 @@ app.use(methodOverride());
 // Routes
 // ------------------------------------------------------
 require('./app/routes.js')(app);
+
+global._ = _; //lodash
 
 // Listen
 // -------------------------------------------------------

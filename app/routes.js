@@ -1,78 +1,60 @@
 // Dependencies
-var mongoose = require('mongoose');
-var Markers = require('./marker-model.js');
-var Geometries = require('./geometry-model.js');
+var mongoose          = require('mongoose');
+var Markers           = require('./models/marker-model.js');
+var MarkerFactory     = require('./factory/marker.factory.js');
+var LinestringFactory = require('./factory/linestring.factory.js');
+var PolygonFactory    = require('./factory/polygon.factory.js');
 
 // Opens App Routes
 module.exports = function(app) {
 
-    // GET Routes
-    // --------------------------------------------------------
-    // Retrieve records for all points in the db
+    /** Getting all the markers **/
     app.get('/markers', function(req, res) {
-
-        // Uses Mongoose schema to run the search (empty conditions)
-        var query = Markers.find({});
-        query.exec(function(err, markers) {
-            if (err){
-              res.send(err);
-              return;
-            }
-
-            // If no errors are found, it responds with a JSON of all points
-            res.json(markers);
+        MarkerFactory.getMarkers().then( function (data) {
+            return res.json(data);
         });
     });
 
-    app.get('/geometry', function(req, res) {
-
-        // Uses Mongoose schema to run the search (empty conditions)
-        var query = Geometries.find({});
-        query.exec(function(err, geometries) {
-            if (err){
-              res.send(err);
-              return;
-            }
-
-            // If no errors are found, it responds with a JSON of all points
-            res.json(geometries);
-        });
-    });
-
-    // POST Routes
-    // --------------------------------------------------------
-    // Provides method for saving new points in the db
+    /** Posting a new marker **/
     app.post('/markers', function(req, res) {
-
-        // Creates a new Point based on the Mongoose schema and the post body
-        var newMarker = new Markers(req.body);
-
-        // New Points is saved in the db.
-        newMarker.save(function(err) {
-          if (err){
-            res.send(err);
-            return;
-          }
-
-            // If no errors are found, it responds with a JSON of the new point
-            res.json(req.body);
+        MarkerFactory.postMarker(req).then( function (data) {
+            res.json(data);
         });
     });
 
-    app.post('/geometry', function(req, res) {
+    /** Getting all the linestrings **/
+    app.get('/linestrings', function(req, res) {
+        LinestringFactory.getLinestrings().then( function (data) {
+            res.json(data);
+        }, function (error) {
+            res.json(error);
+        });
+    });
 
-        // Creates a new Point based on the Mongoose schema and the post body
-        var newGeometry = new Geometries(req.body);
+    /** Posting a new linestring **/
+    app.post('/linestrings', function(req, res) {
+        LinestringFactory.postLinestring(req).then( function (data) {
+            return res.json(data);
+        }, function (error) {
+            res.json(error);
+        });
+    });
 
-        // New Points is saved in the db.
-        newGeometry.save(function(err) {
-          if (err){
-            res.send(err);
-            return;
-          }
+    /** Getting all the polygon **/
+    app.get('/polygons', function(req, res) {
+        PolygonFactory.getPolygons().then( function (data) {
+            res.json(data);
+        }, function (error) {
+            res.json(error);
+        });
+    });
 
-            // If no errors are found, it responds with a JSON of the new point
-            res.json(req.body);
+    /** Posting a new polygon **/
+    app.post('/polygons', function(req, res) {
+        PolygonFactory.postPolygon(req).then( function (data) {
+            return res.json(data);
+        }, function (error) {
+            res.json(error);
         });
     });
 
@@ -85,7 +67,7 @@ module.exports = function(app) {
         var distance = req.body.distance;
 
         // Check if distance is valid
-        if (distance !== 'undefined' && distance !== 'null' && (distance/distance)===1){
+        if (!_.isUndefined(distance) && !_.isNull(distance) && _.isInteger(distance)){
 
             // Opens a generic Mongoose Query. Depending on the post body we will...
             var query = Markers.find({'type':'Point'});
