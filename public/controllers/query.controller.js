@@ -61,7 +61,7 @@ function QueryController($scope, $http, $rootScope, geolocation, GoogleServiceFa
         };
 
         // Post the queryBody to the /query POST route to retrieve the filtered results
-        $http.post('/query', vm.queryBody)
+        $http.post('/find-neighbours', vm.queryBody)
 
         // Store the filtered results in queryResults
             .success(function(queryResults) {
