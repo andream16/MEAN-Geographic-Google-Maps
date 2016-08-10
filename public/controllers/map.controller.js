@@ -37,7 +37,9 @@ function MapController($scope, $http, $rootScope, geolocation, GoogleServiceFact
         // Grabs all of the text box fields
         var userData = {
             name        : vm.formData.username,
-            coordinates : [vm.formData.latitude, vm.formData.longitude]
+            geo         : {
+                            coordinates : [vm.formData.latitude, vm.formData.longitude]
+            }
         };
 
         // Saves marker data to the db

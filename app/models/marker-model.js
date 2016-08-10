@@ -5,11 +5,10 @@ var Schema   = mongoose.Schema;
 // Creates a GeoObject Schema. This will be the basis of how data is stored in the db
 var markers = new Schema({
     name : {type: String},
-    type: {
-        type: String,
-        default : 'Point'
+    geo: {
+          type : {type: String, default: "Point"},
+          coordinates : [Number]
     },
-    coordinates: {type: [Number], index:true},
     created_at:  {type: Date, default: Date.now},
     updated_at:  {type: Date, default: Date.now}
 });
@@ -25,5 +24,5 @@ markers.pre('save', function(next){
 });
 
 // Indexes this schema in 2dsphere format (critical for running proximity searches)
-markers.index({coordinates: '2dsphere'});
+markers.index({geo: '2dsphere'});
 module.exports = mongoose.model('markers', markers);

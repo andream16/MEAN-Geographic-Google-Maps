@@ -5,9 +5,8 @@ var Schema   = mongoose.Schema;
 var polygons = new Schema({
     name: {type: String, required : true},
     geo : {
-        type : {type: String,
-            default: "Polygon"},
-        coordinates : Array
+        type : {type: String, default: "Polygon"},
+                coordinates : Array
     },
     created_at: {type: Date, default: Date.now},
     updated_at: {type: Date, default: Date.now}

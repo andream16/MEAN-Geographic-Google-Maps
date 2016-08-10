@@ -16,14 +16,14 @@
                     // Create popup windows for each record
                     var contentString =
                         '<p><b>Name</b>: ' + markers.name + '</br>' +
-                        '<b>Type</b>: ' + markers.type + '</br>' +
-                        '<b>Lat</b>: ' + markers.coordinates[0] + '</br>' +
-                        '<b>Long</b>: ' + markers.coordinates[1] +
+                        '<b>Type</b>: '    + markers.geo.type + '</br>' +
+                        '<b>Lat</b>: '     + markers.geo.coordinates[0] + '</br>' +
+                        '<b>Long</b>: '    + markers.geo.coordinates[1] +
                         '</p>';
 
                     // Converts each of the JSON records into Google Maps Location format (Note [Lat, Lng] format).
                     locations.push({
-                        latlon: new google.maps.LatLng(markers.coordinates[0], markers.coordinates[1]),
+                        latlon: new google.maps.LatLng(markers.geo.coordinates[0], markers.geo.coordinates[1]),
                         message: new google.maps.InfoWindow({
                             content: contentString,
                             maxWidth: 320

@@ -52,10 +52,11 @@ function findNeighbours(req) {
         if (!_.isUndefined(distance) && !_.isNull(distance) && _.isInteger(distance)){
 
             // Opens a generic Mongoose Query. Depending on the post body we will...
-            var query = Markers.find({'type':'Point'});
+            var query = Markers.find({});
+            console.log(query.length);
 
             // Using MongoDB's geospatial querying features. (Note how coordinates are set [long, lat]
-            query = query.where('coordinates').near({
+            query = query.where('geo').near({
                 center: {
                     type: 'Point',
                     coordinates: [lat, long]

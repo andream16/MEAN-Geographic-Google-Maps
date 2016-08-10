@@ -79,7 +79,7 @@
                         initialize(latitude, longitude, false);
                     }).error(function () {
                     });
-                    
+
                 }
             };
 
