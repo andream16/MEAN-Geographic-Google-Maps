@@ -1,0 +1,25 @@
+<!-- Creates Form -->
+<form name="LinestringsIntersectionForm" class="fadeIn">
+
+    <h4 align="center">Linestrings Intersection</h4>
+    <!-- Text Boxes and Other User Inputs. Note ng-model binds the values to Angular $scope -->
+    <div class="form-group">
+        <label for="poly1">Linestring Id</label>
+        <input type="text" class="form-control" id="poly1" placeholder="I'm a polyline" ng-model="queryCtrl.formData.poly1">
+    </div>
+
+    <button type="submit" class="btn btn-danger btn-block" ng-click="queryCtrl.findLinestringIntersections()" ng-disabled="!queryCtrl.formData.poly1.length">Look for Intersections</button>
+    </br>
+    <div align="center">
+      <button type="button" class="btn btn-success btn-md " ng-click="queryCtrl.goToView('Close Points')">Close Points</button>
+      <button type="button" class="btn btn-warning btn-md " ng-click="queryCtrl.goToView('Area Intersection')">Inters Area</button>
+      <button type="button" class="btn btn-primary btn-md " ng-click="queryCtrl.goToView('Points Inside Area')">Points Inside Area</button>
+    </div>
+</form>
+
+</br>
+
+<div ng-show="queryCtrl.showResults" class="panel-footer fadeIn">
+  <p ng-if="queryCtrl.intersections"  class="text-center">Found {{queryCtrl.intersections}} Intersections for {{queryCtrl.linestringName}}</p>
+  <p ng-if="queryCtrl.noIntersections" class="text-center">No Intersections found for {{queryCtrl.linestringName}}</p>
+</div>

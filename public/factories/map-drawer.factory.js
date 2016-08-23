@@ -37,7 +37,7 @@
                 return locations;
             }
 
-            /** Draws Polylines **/
+            /** Draws Linestrings **/
             function triggerPolyline(linestrings, map) {
                 var linestringNumber = Object.keys(linestrings).length;
                 for (var i = 0; i < linestringNumber; i++) {

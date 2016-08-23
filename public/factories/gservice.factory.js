@@ -121,7 +121,7 @@
                     });
                 });
 
-                /** Draws Polylines **/
+                /** Draws Linestrings **/
                 MapDrawerFactory.triggerPolyline(linestrings, map);
                 /** Draws Polygons **/
                 MapDrawerFactory.triggerPolygon(polygons, map);

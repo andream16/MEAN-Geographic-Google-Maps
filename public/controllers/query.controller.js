@@ -65,7 +65,7 @@ function QueryController($scope, $http, $rootScope, geolocation, GoogleServiceFa
 
         // Store the filtered results in queryResults
             .success(function(queryResults) {
-
+                console.log(queryResults);
                 // Pass the filtered results to the Google Map Service and refresh the map
                 GoogleServiceFactory.refresh(vm.queryBody.latitude, vm.queryBody.longitude, queryResults);
                 // Count the number of records retrieved for the panel-footer
@@ -81,6 +81,31 @@ function QueryController($scope, $http, $rootScope, geolocation, GoogleServiceFa
             })
     };
 
-
+    /** Looks for LineStrings intersecting a given linestring **/
+    vm.findLinestringIntersections = function () {
+        vm.queryBody = {
+            name : vm.formData.poly1
+        };
+        // Post the queryBody to the /query POST route to retrieve the filtered results
+        $http.post('/find-poly-intersection', vm.queryBody)
+        // Store the filtered results in queryResults
+            .success(function(intersections) {
+                console.log(intersections);
+                vm.linestringName = vm.queryBody.name;
+                vm.showResults    = true;
+                if(intersections.length > 0){
+                    vm.intersections  = intersections.length;
+                    // Pass the filtered results to the Google Map Service and refresh the map
+                    GoogleServiceFactory.refresh(60, -20, intersections);
+                } else if(_.isUndefined(intersections)){
+                    vm.noIntersections = true;
+                }
+            })
+            .error(function(err) {
+                if(err){
+                    console.log('Error ' + err);
+                }
+            });
+    };
 
 }

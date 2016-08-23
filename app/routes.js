@@ -49,6 +49,15 @@ module.exports = function(app) {
         });
     });
 
+    // Retrieves JSON records for all linestrings intersecting a given one
+    app.post('/find-poly-intersection', function(req, res) {
+        LinestringFactory.findIntersections(req).then( function (linestrings) {
+            return res.json(linestrings);
+        }, function (error) {
+            return res.json(error);
+        })
+    });
+
     /** Getting all the polygon **/
     app.get('/polygons', function(req, res) {
         PolygonFactory.getPolygons().then( function (polygons) {

@@ -6,7 +6,7 @@ var linestrings = new Schema({
     name: {type: String, required : true},
     geo : {
         type : {type: String, default: "LineString"},
-                coordinates : Array
+        coordinates : Array
     },
     created_at: {type: Date, default: Date.now},
     updated_at: {type: Date, default: Date.now}
