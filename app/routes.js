@@ -76,4 +76,22 @@ module.exports = function(app) {
         });
     });
 
+    // Retrieves JSON records for all polygons intersecting a given one
+    app.post('/find-polygon-intersections', function(req, res) {
+        PolygonFactory.findIntersections(req).then( function (polygons) {
+            return res.json(polygons);
+        }, function (error) {
+            return res.json(error);
+        })
+    });
+
+    // Retrieves JSON records for all points inside a given polygon
+    app.post('/find-points-inside-polygon', function(req, res) {
+        PolygonFactory.findPointsInsidePolygon(req).then( function (points) {
+            return res.json(points);
+        }, function (error) {
+            return res.json(error);
+        })
+    });
+
 };

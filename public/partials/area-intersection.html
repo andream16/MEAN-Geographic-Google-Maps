@@ -3,15 +3,10 @@
     <h4 align="center">Area Intersection</h4>
     <!-- Text Boxes and Other User Inputs. Note ng-model binds the values to Angular $scope -->
     <div class="form-group">
-        <label for="areaId1">First Area Id</label>
+        <label for="areaId1">Polygon Id</label>
         <input type="text" class="form-control" id="areaId1" placeholder="Lost Place" ng-model="queryCtrl.formData.areaId1">
     </div>
-    <div class="form-group">
-        <label for="areaId2">Second Area Id</label>
-        <input type="text" class="form-control" id="areaId2" placeholder="Black Forest" ng-model="queryCtrl.formData.areaId2">
-    </div>
-
-    <button type="submit" class="btn btn-danger btn-block" ng-click="" ng-disabled="!queryCtrl.formData.areaId1.length || !queryCtrl.formData.areaId2.length">Look for Intersections</button>
+    <button type="submit" class="btn btn-danger btn-block" ng-click="queryCtrl.findPolygonIntersections()" ng-disabled="!queryCtrl.formData.areaId1.length">Look for Intersections</button>
 </br>
 <div align="center">
     <button type="button" class="btn btn-warning btn-md " ng-click="queryCtrl.goToView('Close Points')">Close Points</button>

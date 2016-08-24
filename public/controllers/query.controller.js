@@ -108,4 +108,49 @@ function QueryController($scope, $http, $rootScope, geolocation, GoogleServiceFa
             });
     };
 
+    /** Looks for Polygons intersecting a given polygon **/
+    vm.findPolygonIntersections = function () {
+        vm.queryBody = {
+            name : vm.formData.areaId1
+        };
+        // Post the queryBody to the /query POST route to retrieve the filtered results
+        $http.post('/find-polygon-intersections', vm.queryBody)
+        // Store the filtered results in queryResults
+            .success(function(intersections) {
+                console.log(intersections);
+                vm.polygonName = vm.queryBody.name;
+                vm.showResults    = true;
+                if(intersections.length > 0){
+                    vm.intersections  = intersections.length;
+                    // Pass the filtered results to the Google Map Service and refresh the map
+                    GoogleServiceFactory.refresh(60, -20, intersections);
+                } else if(_.isUndefined(intersections)){
+                    vm.noIntersections = true;
+                }
+            })
+            .error(function(err) {
+                if(err){
+                    console.log('Error ' + err);
+                }
+            });
+    };
+
+    /** Looks for Polygons intersecting a given polygon **/
+    vm.findPointsInsidePolygon = function () {
+        vm.queryBody = {
+            name : vm.formData.area1
+        };
+        // Post the queryBody to the /query POST route to retrieve the filtered results
+        $http.post('/find-points-inside-polygon', vm.queryBody)
+        // Store the filtered results in queryResults
+            .success(function(points) {
+                console.log(points);
+            })
+            .error(function(err) {
+                if(err){
+                    console.log('Error ' + err);
+                }
+            });
+    };
+
 }
