@@ -1,52 +1,14 @@
 
-var Polygons  = require('../models/polygon-model.js');
-var Points    = require('../models/marker-model.js');
+var Geometries  = require('../models/geometry-model.js');
 
-exports.getPolygons             = getPolygons;
-exports.postPolygon             = postPolygon;
 exports.findIntersections       = findIntersections;
 exports.findPointsInsidePolygon = findPointsInsidePolygon;
-
-/** Gets all the linestrings stored in the DB **/
-function getPolygons() {
-    return new Promise( function (resolve, reject) {
-        var query = Polygons.find({});
-        query.exec(function(err, polygons) {
-            if (err){
-                return reject(err);
-            }
-            // If no errors are found, it responds with a JSON of all polygons
-            return resolve(polygons);
-        });
-    }, function (error){
-        return reject(error);
-    });
-}
-
-/** Posting a new marker **/
-function postPolygon(req) {
-    return new Promise( function (resolve, reject) {
-        // Creates a new Linestring based on the Mongoose schema and the post body
-        var newPolygon = new Polygons(req.body);
-        // New Polygon is saved in the db.
-        newPolygon.save(function(err) {
-            console.log(err);
-            if (err){
-                return reject(err);
-            }
-            // If no errors are found, it responds with a JSON of the new polygon
-            return resolve(req.body);
-        });
-    }, function (error){
-        return reject(error);
-    });
-}
 
 /** Finds Linestrings Intersections **/
 function findIntersections(req) {
     return new Promise( function (resolve, reject) {
         var polygonName = req.body.name;
-        Polygons.findOne({name : polygonName}).then( function (polygonByName, error) {
+        Geometries.findOne({name : polygonName, 'geo.type' : 'Polygon'}).then( function (polygonByName, error) {
             if(error){
                 return reject({error : 'Polygon not Found'});
             }
@@ -54,32 +16,30 @@ function findIntersections(req) {
                 return resolve(response);
             });
         });
-    }, function (error) {
-        return reject({error : 'Error while executing promise'});
     });
 }
 
 function queryIntersections(polygonByName) {
     return new Promise( function (resolve, reject) {
         if (_.isEmpty(polygonByName) || _.isUndefined(polygonByName) || _.isNull(polygonByName)){
-            return reject({ error : 'No Linestrings found for that Name'});
+            return reject({ error : 'No Polygons found for that Name'});
         } else {
-            query = Polygons.where( { geo : { $geoIntersects : { $geometry : { type: 'Polygon', coordinates: polygonByName.geo.coordinates  } } } } );
+            query = Geometries.find({'geo.type' : 'Polygon'}).where( { geo : { $geoIntersects : { $geometry : { type: 'Polygon', coordinates: polygonByName.geo.coordinates  } } } } );
             queryExec(query).then( function (polygons) {
                 if(polygons){
                     return resolve(polygons);
                 }
-                return reject({ error : 'No Linestrings Found for '+polygonByName.name});
+                return reject({ error : 'No Polygons Found for '+polygonByName.name});
             });
         }
     });
 }
 
-/** Finds Linestrings Intersections **/
+/** Finds Points inside a given Polygon **/
 function findPointsInsidePolygon(req) {
     return new Promise( function (resolve, reject) {
         var polygonName = req.body.name;
-        Polygons.findOne({name : polygonName}).then( function (polygonByName, error) {
+        Geometries.findOne({name : polygonName, 'geo.type' : 'Polygon'}).then( function (polygonByName, error) {
             if(error){
                 return reject({error : 'Polygon not Found'});
             }
@@ -87,8 +47,6 @@ function findPointsInsidePolygon(req) {
                     return resolve(response);
                 });
         });
-    }, function (error) {
-        return reject({error : 'Error while executing promise'});
     });
 }
 
@@ -97,7 +55,7 @@ function pointsInsidePolygon(polygonByName) {
         if (_.isEmpty(polygonByName) || _.isUndefined(polygonByName) || _.isNull(polygonByName)){
             return reject({ error : 'No Linestrings found for that Name'});
         } else {
-            query = Points.where( { geo : { $geoWithin : { $geometry : { type: 'Polygon', coordinates: polygonByName.geo.coordinates  } } } } );
+            query = Geometries.find({'geo.type' : 'Point'}).where( { geo : { $geoWithin : { $geometry : { type: 'Polygon', coordinates: polygonByName.geo.coordinates  } } } } );
             queryExec(query).then( function (points) {
                 if(points){
                     return resolve(points);
@@ -107,7 +65,6 @@ function pointsInsidePolygon(polygonByName) {
         }
     });
 }
-
 
 /** Executes the Query **/
 function queryExec(query) {

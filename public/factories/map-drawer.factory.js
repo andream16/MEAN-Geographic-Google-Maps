@@ -6,108 +6,103 @@
         .factory('MapDrawerFactory', function () {
 
             /** Converts Given Points into Google Map Markers **/
-            function convertToMapPoints(points) {
+            function convertToMapPoints(geometries) {
                 // Clear the locations holder
                 var locations = [];
 
                 // Loop through all of the JSON entries provided in the response
-                for (var i = 0; i < points.length; i++) {
-                    var markers = points[i];
-                    // Create popup windows for each record
-                    var contentString =
-                        '<p><b>Name</b>: ' + markers.name + '</br>' +
-                        '<b>Type</b>: '    + markers.geo.type + '</br>' +
-                        '<b>Lat</b>: '     + markers.geo.coordinates[0] + '</br>' +
-                        '<b>Long</b>: '    + markers.geo.coordinates[1] +
-                        '</p>';
+                for (var i = 0; i < geometries.length; i++) {
 
-                    // Converts each of the JSON records into Google Maps Location format (Note [Lat, Lng] format).
-                    locations.push({
-                        latlon: new google.maps.LatLng(markers.geo.coordinates[0], markers.geo.coordinates[1]),
-                        message: new google.maps.InfoWindow({
-                            content: contentString,
-                            maxWidth: 320
-                        }),
-                        username: markers.name
-                    });
+                    if(geometries[i].geo.type === 'Point'){
+                        var markers = geometries[i];
+                        // Create popup windows for each record
+                        var contentString =
+                            '<p><b>Name</b>: ' + markers.name + '</br>' +
+                            '<b>Type</b>: '    + markers.geo.type + '</br>' +
+                            '<b>Lat</b>: '     + markers.geo.coordinates[0] + '</br>' +
+                            '<b>Long</b>: '    + markers.geo.coordinates[1] +
+                            '</p>';
 
+                        // Converts each of the JSON records into Google Maps Location format (Note [Lat, Lng] format).
+                        locations.push({
+                            latlon: new google.maps.LatLng(markers.geo.coordinates[0], markers.geo.coordinates[1]),
+                            message: new google.maps.InfoWindow({
+                                content: contentString,
+                                maxWidth: 320
+                            }),
+                            username: markers.name,
+                            type : markers.geo.type
+                        });
+                    }
+
+                    if(geometries[i].geo.type === 'LineString') {
+
+                        var linestrings = geometries[i];
+                        var polyline_coordinates = [];
+
+                        // Create popup windows for each record
+                        var contentString =
+                            '<p><b>Name</b>: ' + linestrings.name + '</br>' +
+                            '<b>Type</b>: '    + linestrings.geo.type + '</br>' +
+                            '</p>';
+
+                        for (var j = 0; j < linestrings.geo.coordinates.length; j++) {
+                            polyline_coordinates.push({
+                                lat: linestrings.geo.coordinates[j][0],
+                                lng: linestrings.geo.coordinates[j][1]
+                            });
+                        }
+
+                        // Converts each of the JSON records
+                        locations.push({
+                                coords: polyline_coordinates,
+                                message: new google.maps.InfoWindow({
+                                    content: contentString,
+                                    maxWidth: 320
+                                }),
+                                username: linestrings.name,
+                                type    : linestrings.geo.type
+                            });
+
+                    }
+
+                    if(geometries[i].geo.type === 'Polygon') {
+
+                        var polygons = geometries[i];
+                        var polygon_coordinates = [];
+
+                        // Create popup windows for each record
+                        var contentString =
+                            '<p><b>Name</b>: ' + polygons.name + '</br>' +
+                            '<b>Type</b>: '    + polygons.geo.type + '</br>' +
+                            '</p>';
+
+                        for (var j = 0; j < polygons.geo.coordinates.length; j++) {
+                            polygon_coordinates.push({
+                                lat: polygons.geo.coordinates[j][0],
+                                lng: polygons.geo.coordinates[j][1]
+                            });
+                        }
+
+                        // Converts each of the JSON records
+                        locations.push({
+                            coords: polygon_coordinates,
+                            message: new google.maps.InfoWindow({
+                                content: contentString,
+                                maxWidth: 320
+                            }),
+                            username: polygons.name,
+                            type    : polygons.geo.type
+                        });
+                    }
                 }
 
-                // location is now an array populated with records in Google Maps format, only for points
+                // location is now an array populated with records in Google Maps format
                 return locations;
             }
 
-            /** Draws Linestrings **/
-            function triggerPolyline(linestrings, map) {
-                var linestringNumber = Object.keys(linestrings).length;
-                for (var i = 0; i < linestringNumber; i++) {
-                    var geometries = linestrings[i];
-                    var coords = geometries.geo.coordinates;
-                    addPolyline(coords, map);
-                }
-            }
-
-            /** Adds Polyline to Map **/
-            function addPolyline(coords, map) {
-                var polyline_coordinates = [];
-
-                for (var i = 0; i < coords.length; i++) {
-                    polyline_coordinates.push({
-                        lat: coords[i][0],
-                        lng: coords[i][1]
-                    });
-                }
-                var new_polyline = new google.maps.Polyline({
-                    path: polyline_coordinates,
-                    geodesic: true,
-                    strokeColor: '#FF0000',
-                    strokeOpacity: 1.0,
-                    strokeWeight: 2
-                });
-
-                //Assign the newly created Polyline to the map
-                new_polyline.setMap(map);
-            }
-
-            /** Draws Polygons **/
-            function triggerPolygon(polygons, map) {
-                var polygonNumber = Object.keys(polygons).length;
-                for (var i = 0; i < polygonNumber; i++) {
-                    var geometries = polygons[i];
-                    var coords = geometries.geo.coordinates;
-                    addPolygon(coords, map);
-                }
-            }
-
-            /** Adds Polygon to Map **/
-            function addPolygon(coords, map) {
-                coords = coords[0];
-                var polygon_coordinates = [];
-
-                for (var i = 0; i < coords.length; i++) {
-                    polygon_coordinates.push({
-                        lat: parseFloat(coords[i][0]),
-                        lng: parseFloat(coords[i][1])
-                    });
-                }
-                var new_polygon = new google.maps.Polygon({
-                    path: polygon_coordinates,
-                    geodesic: true,
-                    strokeColor: '#FF0000',
-                    strokeOpacity: 0.8,
-                    strokeWeight: 3,
-                    fillColor: '#FF0000',
-                    fillOpacity: 0.35
-                });
-
-                //Assign newly created Polygon to the Map
-                new_polygon.setMap(map);
-            }
-
             return {
-                convertToMapPoints : convertToMapPoints,
-                triggerPolyline    : triggerPolyline,
-                triggerPolygon     : triggerPolygon
+                convertToMapPoints : convertToMapPoints
             }
         });
 })();

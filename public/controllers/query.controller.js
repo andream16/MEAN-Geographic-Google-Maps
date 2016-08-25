@@ -65,7 +65,6 @@ function QueryController($scope, $http, $rootScope, geolocation, GoogleServiceFa
 
         // Store the filtered results in queryResults
             .success(function(queryResults) {
-                console.log(queryResults);
                 // Pass the filtered results to the Google Map Service and refresh the map
                 GoogleServiceFactory.refresh(vm.queryBody.latitude, vm.queryBody.longitude, queryResults);
                 // Count the number of records retrieved for the panel-footer

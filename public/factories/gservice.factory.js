@@ -8,9 +8,9 @@
             //Initializing Variables
             var vm               = this;
             var googleMapService = {};
-            var currentSelectedMarker;
             var lastMarker;
             var icon;
+            var strokeColor;
 
             // Handling Clicks and location selection
             googleMapService.clickLat  = 0;
@@ -18,34 +18,12 @@
 
             // Array of locations obtained from API calls
             var locations   = [];
-            var linestrings = [];
-            var polygons    = [];
 
             vm.selectedLat  = 39.000;
             vm.selectedLong = 9;
 
             //Initializes Map
             var map = null;
-
-            //Gets all the linestrings from DB
-            getLinestrings();
-            function getLinestrings() {
-                $http.get('/linestrings').success(function (response) {
-                    linestrings = response;
-                }).error(function (error) {
-                    console.log(error);
-                });
-            }
-
-            //Gets all the polygons from DB
-            getPolygons();
-            function getPolygons() {
-                $http.get('/polygons').success(function (response) {
-                    polygons = response;
-                }).error(function (error) {
-                    console.log(error);
-                });
-            }
 
             /** Refresh the Map with new data. Function will take new latitude and longitude coordinates. */
             googleMapService.refresh = function (latitude, longitude, filteredResults) {
@@ -71,7 +49,7 @@
                 else {
 
                     // Perform an AJAX call to get all of the records in the db.
-                    $http.get('/markers').success(function (response) {
+                    $http.get('/geometries').success(function (response) {
 
                         locations = MapDrawerFactory.convertToMapPoints(response);
 
@@ -84,11 +62,10 @@
             };
 
             // Initializes the map
-            var initialize = function (latitude, longitude, filter) {
+            function initialize(latitude, longitude, filter) {
 
                 // If map has not been created...
                 if (!map) {
-
                     // Create a new map and place in the index.html page
                     var map = new google.maps.Map(document.getElementById('map'), {
                         zoom: 3,
@@ -98,50 +75,88 @@
 
                 // If a filter was used set the icons yellow, otherwise blue
                 if (filter) {
-                    icon = "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png";
+                    icon        = "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png";
+                    strokeColor = "#21610B";
+
                 } else {
                     icon = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
+                    strokeColor = "#FF0000";
                 }
 
-                // Loop through each location in the array and place a marker
+                // Loop through each location in the array and place a geometry
                 locations.forEach(function (n) {
-                    var marker = new google.maps.Marker({
-                        position: n.latlon,
-                        map: map,
-                        title: "Big Map",
-                        icon: icon
-                    });
+                    if(n.type === 'Point'){
+                        var marker = new google.maps.Marker({
+                            position: n.latlon,
+                            map: map,
+                            icon: icon
+                        });
 
-                    // For each marker created, add a listener that checks for clicks
-                    google.maps.event.addListener(marker, 'click', function (e) {
+                        // For each marker created, add a listener that checks for clicks
+                        google.maps.event.addListener(marker, 'click', function () {
+                            // When clicked, open the selected marker's message
+                            n.message.open(map, marker);
+                        });
+                    }
+                    if(n.type === 'LineString'){
+                        console.log('LineString '+JSON.stringify(n.coords));
 
-                        // When clicked, open the selected marker's message
-                        currentSelectedMarker = n;
-                        n.message.open(map, marker);
-                    });
+                        var linestring = new google.maps.Polyline({
+                            position: n.coords,
+                            map: map,
+                            geodesic: true,
+                            strokeColor: strokeColor,
+                            strokeOpacity: 1.0,
+                            strokeWeight: 2
+                        });
+
+                        // For each linestring created, add a listener that checks for clicks
+                        google.maps.event.addListener(linestring, 'click', function () {
+                            // When clicked, open the selected linestring's message
+                            n.message.open(map, linestring);
+                        });
+
+                        linestring.setMap(map);
+                    }
+                    if(n.type === 'Polygon'){
+                        console.log('Polygon '+JSON.stringify(n.coords));
+                        var polygon = new google.maps.Polygon({
+                            path: n.coords,
+                            geodesic: true,
+                            strokeColor: strokeColor,
+                            strokeOpacity: 0.8,
+                            strokeWeight: 3,
+                            fillColor: '#0404B4',
+                            fillOpacity: 0.35
+                        });
+
+                        // For each polygon created, add a listener that checks for clicks
+                        google.maps.event.addListener(polygon, 'click', function () {
+                            // When clicked, open the selected polygon's message
+                            n.message.open(map, polygon);
+                        });
+
+                        polygon.setMap(map);
+                    }
+
                 });
-
-                /** Draws Linestrings **/
-                MapDrawerFactory.triggerPolyline(linestrings, map);
-                /** Draws Polygons **/
-                MapDrawerFactory.triggerPolygon(polygons, map);
 
                 // Set initial location as a bouncing red marker
                 var initialLocation = new google.maps.LatLng(latitude, longitude);
-                var marker = new google.maps.Marker({
+                var bounceMarker = new google.maps.Marker({
                     position: initialLocation,
                     animation: google.maps.Animation.BOUNCE,
                     map: map,
                     icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
                 });
-                lastMarker = marker;
+                lastMarker = bounceMarker;
 
                 // Function for moving to a selected location
                 map.panTo(new google.maps.LatLng(latitude, longitude));
 
                 // Clicking on the Map moves the bouncing red marker
                 google.maps.event.addListener(map, 'click', function (e) {
-                    var marker = new google.maps.Marker({
+                    bounceMarker = new google.maps.Marker({
                         position: e.latLng,
                         animation: google.maps.Animation.BOUNCE,
                         map: map,
@@ -154,12 +169,12 @@
                     }
 
                     // Create a new red bouncing marker and move to it
-                    lastMarker = marker;
-                    map.panTo(marker.position);
+                    lastMarker = bounceMarker;
+                    map.panTo(bounceMarker.position);
 
                     // Update Broadcasted Variable (lets the panels know to change their lat, long values)
-                    googleMapService.clickLat = marker.getPosition().lat();
-                    googleMapService.clickLong = marker.getPosition().lng();
+                    googleMapService.clickLat = bounceMarker.getPosition().lat();
+                    googleMapService.clickLong = bounceMarker.getPosition().lng();
                     $rootScope.$broadcast("clicked");
                 });
             };

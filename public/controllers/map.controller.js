@@ -38,12 +38,13 @@ function MapController($scope, $http, $rootScope, geolocation, GoogleServiceFact
         var userData = {
             name        : vm.formData.username,
             geo         : {
-                            coordinates : [vm.formData.latitude, vm.formData.longitude]
+                            coordinates : [parseFloat(vm.formData.latitude), parseFloat(vm.formData.longitude)],
+                            type        : 'Point'
             }
         };
 
         // Saves marker data to the db
-        $http.post('/markers', userData)
+        $http.post('/geometries', userData)
             .success(function() {
                 // Once complete, clear the form (except location)
                 vm.formData.username = "";

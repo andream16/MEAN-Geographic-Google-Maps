@@ -1,19 +1,19 @@
 var mongoose = require('mongoose');
 var Schema   = mongoose.Schema;
 
-// Creates a Polygon Schema.
-var polygons = new Schema({
+// Creates a geometry Schema
+var geometry = new Schema({
     name: {type: String, required : true},
     geo : {
-        type : {type: String, default: "Polygon"},
-                coordinates : Array
+        type : {type: String, enum: ["Point", "LineString", "Polygon"], default : "Point"},
+        coordinates : Array
     },
     created_at: {type: Date, default: Date.now},
     updated_at: {type: Date, default: Date.now}
 });
 
 // Sets the created_at parameter equal to the current time
-polygons.pre('save', function(next){
+geometry.pre('save', function(next){
     now = new Date();
     this.updated_at = now;
     if(!this.created_at) {
@@ -22,5 +22,5 @@ polygons.pre('save', function(next){
     next();
 });
 
-polygons.index({geo : '2dsphere'});
-module.exports = mongoose.model('polygons', polygons);
+geometry.index({geo : '2dsphere'});
+module.exports = mongoose.model('geometry', geometry);

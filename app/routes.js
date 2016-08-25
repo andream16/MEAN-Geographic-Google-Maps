@@ -2,23 +2,26 @@
 var MarkerFactory     = require('./factories/marker.factory.js');
 var LinestringFactory = require('./factories/linestring.factory.js');
 var PolygonFactory    = require('./factories/polygon.factory.js');
+var GeometryFactory   = require('./factories/geometry.factory.js');
 
 // Opens App Routes
 module.exports = function(app) {
 
-    /** Getting all the markers **/
-    app.get('/markers', function(req, res) {
-        MarkerFactory.getMarkers().then( function (markers) {
-            return res.json(markers);
+    /** Getting all the geometries **/
+    app.get('/geometries', function(req, res) {
+        GeometryFactory.getGeometries().then( function (geometry) {
+            res.json(geometry);
         }, function (error) {
             res.json(error);
         });
     });
 
-    /** Posting a new marker **/
-    app.post('/markers', function(req, res) {
-        MarkerFactory.postMarker(req).then( function (marker) {
-            res.json(marker);
+    /** Posting a new geometry **/
+    app.post('/geometries', function(req, res) {
+        GeometryFactory.postGeometry(req).then( function (geometry) {
+            return res.json(geometry);
+        }, function (error) {
+            res.json(error);
         });
     });
 
@@ -31,24 +34,6 @@ module.exports = function(app) {
         })
     });
 
-    /** Getting all the linestrings **/
-    app.get('/linestrings', function(req, res) {
-        LinestringFactory.getLinestrings().then( function (linestrings) {
-            res.json(linestrings);
-        }, function (error) {
-            res.json(error);
-        });
-    });
-
-    /** Posting a new linestring **/
-    app.post('/linestrings', function(req, res) {
-        LinestringFactory.postLinestring(req).then( function (linestring) {
-            return res.json(linestring);
-        }, function (error) {
-            res.json(error);
-        });
-    });
-
     // Retrieves JSON records for all linestrings intersecting a given one
     app.post('/find-poly-intersection', function(req, res) {
         LinestringFactory.findIntersections(req).then( function (linestrings) {
@@ -56,24 +41,6 @@ module.exports = function(app) {
         }, function (error) {
             return res.json(error);
         })
-    });
-
-    /** Getting all the polygon **/
-    app.get('/polygons', function(req, res) {
-        PolygonFactory.getPolygons().then( function (polygons) {
-            res.json(polygons);
-        }, function (error) {
-            res.json(error);
-        });
-    });
-
-    /** Posting a new polygon **/
-    app.post('/polygons', function(req, res) {
-        PolygonFactory.postPolygon(req).then( function (polygon) {
-            return res.json(polygon);
-        }, function (error) {
-            res.json(error);
-        });
     });
 
     // Retrieves JSON records for all polygons intersecting a given one
