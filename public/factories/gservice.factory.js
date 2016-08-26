@@ -37,12 +37,14 @@
 
                 // If filtered results are provided in the refresh() call...
                 if (filteredResults) {
-
                     // Then convert the filtered results into map points.
-                    locations = MapDrawerFactory.convertToMapPoints(filteredResults);
+                    if(!_.isUndefined(latitude) && !_.isUndefined(longitude)){
+                        locations = MapDrawerFactory.convertToMapPoints(filteredResults);
+                        console.log(locations);
 
-                    // Then, initialize the map -- noting that a filter was used (to mark icons yellow)
-                    initialize(latitude, longitude, true);
+                        // Then, initialize the map -- noting that a filter was used (to mark icons yellow)
+                        initialize(latitude, longitude, true);
+                    }
                 }
 
                 // If no filter is provided in the refresh() call...
@@ -69,7 +71,7 @@
                     // Create a new map and place in the index.html page
                     var map = new google.maps.Map(document.getElementById('map'), {
                         zoom: 3,
-                        center: new google.maps.LatLng(vm.selectedLat, vm.selectedLong)
+                        center: new google.maps.LatLng(latitude, longitude)
                     });
                 }
 
@@ -99,7 +101,6 @@
                         });
                     }
                     if(n.type === 'LineString'){
-                        console.log('LineString '+JSON.stringify(n.coords));
 
                         var linestring = new google.maps.Polyline({
                             path: n.coords,
@@ -107,33 +108,58 @@
                             geodesic: true,
                             strokeColor: strokeColor,
                             strokeOpacity: 1.0,
-                            strokeWeight: 2
+                            strokeWeight: 5
                         });
 
-                        // For each linestring created, add a listener that checks for clicks
-                        google.maps.event.addListener(linestring, 'click', function () {
-                            // When clicked, open the selected linestring's message
-                            n.message.open(map, linestring);
+                        //Get the center of the polygon
+                        var bounds = new google.maps.LatLngBounds();
+                        var i;
+                        for (i = 0; i < n.coords.length; i++) {
+                            bounds.extend(n.coords[i]);
+                        }
+
+                        google.maps.event.addListener(linestring, 'click', function() {
+                            var contentHtml = '';
+                            if(n.message.content){
+                                contentHtml = n.message.content;
+                            }
+                            var infoWindow = new google.maps.InfoWindow({
+                                content : contentHtml
+                            });
+                            infoWindow.open(map, linestring);
+                            infoWindow.setPosition(bounds.getCenter());
                         });
 
                         linestring.setMap(map);
                     }
                     if(n.type === 'Polygon'){
-                        console.log('Polygon '+JSON.stringify(n.coords));
                         var polygon = new google.maps.Polygon({
                             paths: n.coords,
                             geodesic: true,
                             strokeColor: strokeColor,
                             strokeOpacity: 0.8,
-                            strokeWeight: 3,
+                            strokeWeight: 1,
                             fillColor: '#0404B4',
                             fillOpacity: 0.35
                         });
 
-                        // For each polygon created, add a listener that checks for clicks
-                        google.maps.event.addListener(polygon, 'click', function () {
-                            // When clicked, open the selected polygon's message
-                            n.message.open(map, polygon);
+                        //Get the center of the polygon
+                        var bounds = new google.maps.LatLngBounds();
+                        var i;
+                        for (i = 0; i < n.coords.length; i++) {
+                            bounds.extend(n.coords[i]);
+                        }
+
+                        google.maps.event.addListener(polygon, 'click', function() {
+                            var contentHtml = '';
+                            if(n.message.content){
+                                contentHtml = n.message.content;
+                            }
+                            var infoWindow = new google.maps.InfoWindow({
+                                content : contentHtml
+                            });
+                            infoWindow.open(map, polygon);
+                            infoWindow.setPosition(bounds.getCenter());
                         });
 
                         polygon.setMap(map);
@@ -177,7 +203,7 @@
                     googleMapService.clickLong = bounceMarker.getPosition().lng();
                     $rootScope.$broadcast("clicked");
                 });
-            };
+            }
 
             // Refresh the page upon window load. Use the initial latitude and longitude
             google.maps.event.addDomListener(window, 'load', googleMapService.refresh(vm.selectedLat, vm.selectedLong));

@@ -72,7 +72,6 @@
                         var polygon_coordinates = [];
                         var coords = polygons.geo.coordinates[0];
 
-                        console.log(coords);
                         // Create popup windows for each record
                         var contentString =
                             '<p><b>Name</b>: ' + polygons.name + '</br>' +
