@@ -99,6 +99,7 @@ function QueryController($scope, $http, $rootScope, geolocation, GoogleServiceFa
                 } else if(_.isUndefined(intersections)){
                     vm.noIntersections = true;
                 }
+                GoogleServiceFactory.refresh(vm.queryBody.latitude, vm.queryBody.longitude, intersections);
             })
             .error(function(err) {
                 if(err){
@@ -126,6 +127,7 @@ function QueryController($scope, $http, $rootScope, geolocation, GoogleServiceFa
                 } else if(_.isUndefined(intersections)){
                     vm.noIntersections = true;
                 }
+                GoogleServiceFactory.refresh(vm.queryBody.latitude, vm.queryBody.longitude, intersections);
             })
             .error(function(err) {
                 if(err){
@@ -144,6 +146,7 @@ function QueryController($scope, $http, $rootScope, geolocation, GoogleServiceFa
         // Store the filtered results in queryResults
             .success(function(points) {
                 console.log(points);
+                GoogleServiceFactory.refresh(vm.queryBody.latitude, vm.queryBody.longitude, points);
             })
             .error(function(err) {
                 if(err){

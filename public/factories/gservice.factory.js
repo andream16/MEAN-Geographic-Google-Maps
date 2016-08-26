@@ -102,7 +102,7 @@
                         console.log('LineString '+JSON.stringify(n.coords));
 
                         var linestring = new google.maps.Polyline({
-                            position: n.coords,
+                            path: n.coords,
                             map: map,
                             geodesic: true,
                             strokeColor: strokeColor,
@@ -121,7 +121,7 @@
                     if(n.type === 'Polygon'){
                         console.log('Polygon '+JSON.stringify(n.coords));
                         var polygon = new google.maps.Polygon({
-                            path: n.coords,
+                            paths: n.coords,
                             geodesic: true,
                             strokeColor: strokeColor,
                             strokeOpacity: 0.8,

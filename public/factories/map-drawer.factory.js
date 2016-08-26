@@ -70,17 +70,19 @@
 
                         var polygons = geometries[i];
                         var polygon_coordinates = [];
+                        var coords = polygons.geo.coordinates[0];
 
+                        console.log(coords);
                         // Create popup windows for each record
                         var contentString =
                             '<p><b>Name</b>: ' + polygons.name + '</br>' +
                             '<b>Type</b>: '    + polygons.geo.type + '</br>' +
                             '</p>';
 
-                        for (var j = 0; j < polygons.geo.coordinates.length; j++) {
+                        for (var j = 0; j < coords.length; j++) {
                             polygon_coordinates.push({
-                                lat: polygons.geo.coordinates[j][0],
-                                lng: polygons.geo.coordinates[j][1]
+                                lat: coords[j][0],
+                                lng: coords[j][1]
                             });
                         }
 
