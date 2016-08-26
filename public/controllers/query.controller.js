@@ -89,17 +89,20 @@ function QueryController($scope, $http, $rootScope, geolocation, GoogleServiceFa
         $http.post('/find-poly-intersection', vm.queryBody)
         // Store the filtered results in queryResults
             .success(function(intersections) {
+                vm.lat = 40.00;
+                vm.lon = 42.16;
+                GoogleServiceFactory.refresh(vm.lat, vm.lon, intersections);
                 console.log(intersections);
                 vm.linestringName = vm.queryBody.name;
                 vm.showResults    = true;
                 if(intersections.length > 0){
                     vm.intersections  = intersections.length;
                     // Pass the filtered results to the Google Map Service and refresh the map
-                    GoogleServiceFactory.refresh(60, -20, intersections);
+                    GoogleServiceFactory.refresh(vm.queryBody.latitude, vm.queryBody.longitude, intersections);
                 } else if(_.isUndefined(intersections)){
                     vm.noIntersections = true;
                 }
-                GoogleServiceFactory.refresh(vm.queryBody.latitude, vm.queryBody.longitude, intersections);
+
             })
             .error(function(err) {
                 if(err){
@@ -117,17 +120,20 @@ function QueryController($scope, $http, $rootScope, geolocation, GoogleServiceFa
         $http.post('/find-polygon-intersections', vm.queryBody)
         // Store the filtered results in queryResults
             .success(function(intersections) {
+                GoogleServiceFactory.refresh(60, -20, intersections);
                 console.log(intersections);
                 vm.polygonName = vm.queryBody.name;
                 vm.showResults    = true;
                 if(intersections.length > 0){
                     vm.intersections  = intersections.length;
                     // Pass the filtered results to the Google Map Service and refresh the map
-                    GoogleServiceFactory.refresh(60, -20, intersections);
+
                 } else if(_.isUndefined(intersections)){
                     vm.noIntersections = true;
                 }
-                GoogleServiceFactory.refresh(vm.queryBody.latitude, vm.queryBody.longitude, intersections);
+                vm.lat = 40.00;
+                vm.lon = 42.16;
+                GoogleServiceFactory.refresh(vm.lat, vm.lon, intersections);
             })
             .error(function(err) {
                 if(err){
@@ -146,7 +152,9 @@ function QueryController($scope, $http, $rootScope, geolocation, GoogleServiceFa
         // Store the filtered results in queryResults
             .success(function(points) {
                 console.log(points);
-                GoogleServiceFactory.refresh(vm.queryBody.latitude, vm.queryBody.longitude, points);
+                vm.lat = 40.00;
+                vm.lon = 42.16;
+                GoogleServiceFactory.refresh(vm.lat, vm.lon, points);
             })
             .error(function(err) {
                 if(err){
