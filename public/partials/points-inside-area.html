@@ -4,7 +4,7 @@
     <h4 align="center">Points Inside Area</h4>
 
     <div class="form-group">
-        <label for="area1">Area Id</label>
+        <label for="area1">Polygon Id</label>
         <input type="text" class="form-control" id="area1" placeholder="Kamchatka" ng-model="queryCtrl.formData.area1">
     </div>
 
@@ -19,3 +19,8 @@
 </form>
 
 </br>
+
+<!-- Footer panel for displaying count -->
+<div ng-show="queryCtrl.showBox" class="panel-footer fadeIn">
+    <p class="text-center">{{queryCtrl.points}}</p>
+</div>

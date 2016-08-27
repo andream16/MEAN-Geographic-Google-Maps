@@ -7,8 +7,8 @@ exports.findIntersections = findIntersections;
 function findIntersections(req) {
     return new Promise( function (resolve, reject) {
         var lineName = req.body.name;
-        Linestrings.findOne({name : lineName, 'geo.type' : 'LineString'}).then( function (linestringById, error) {
-            if(error){
+        Linestrings.findOne({name : lineName, 'geo.type' : 'LineString'}).then( function (linestringById) {
+            if(_.isNull(linestringById)){
                 return reject({error : 'LineString not Found'});
             }
                 queryIntersections(linestringById).then( function (response) {

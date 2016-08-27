@@ -8,8 +8,8 @@ exports.findPointsInsidePolygon = findPointsInsidePolygon;
 function findIntersections(req) {
     return new Promise( function (resolve, reject) {
         var polygonName = req.body.name;
-        Geometries.findOne({name : polygonName, 'geo.type' : 'Polygon'}).then( function (polygonByName, error) {
-            if(error){
+        Geometries.findOne({name : polygonName, 'geo.type' : 'Polygon'}).then( function (polygonByName) {
+            if(_.isNull(polygonByName)){
                 return reject({error : 'Polygon not Found'});
             }
             queryIntersections(polygonByName).then( function (response) {
@@ -39,8 +39,8 @@ function queryIntersections(polygonByName) {
 function findPointsInsidePolygon(req) {
     return new Promise( function (resolve, reject) {
         var polygonName = req.body.name;
-        Geometries.findOne({name : polygonName, 'geo.type' : 'Polygon'}).then( function (polygonByName, error) {
-            if(error){
+        Geometries.findOne({name : polygonName, 'geo.type' : 'Polygon'}).then( function (polygonByName) {
+            if(_.isNull(polygonByName)){
                 return reject({error : 'Polygon not Found'});
             }
                 pointsInsidePolygon(polygonByName).then( function (response) {
@@ -58,6 +58,7 @@ function pointsInsidePolygon(polygonByName) {
             query = Geometries.find({'geo.type' : 'Point'}).where( { geo : { $geoWithin : { $geometry : { type: 'Polygon', coordinates: polygonByName.geo.coordinates  } } } } );
             queryExec(query).then( function (points) {
                 if(points){
+                    points.push(polygonByName);
                     return resolve(points);
                 }
                 return reject({ error : 'No Points Found for '+polygonByName.name});

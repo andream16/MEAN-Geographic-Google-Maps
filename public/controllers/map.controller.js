@@ -4,7 +4,7 @@ angular
     .module('meanMapApp')
     .controller('MapController', MapController);
 
-function MapController($scope, $http, $rootScope, geolocation, GoogleServiceFactory) {
+function MapController($scope, $http, $rootScope, GeolocationService, GoogleServiceFactory) {
 
     /** Variable Initialization **/
     var vm      = this;
@@ -16,10 +16,11 @@ function MapController($scope, $http, $rootScope, geolocation, GoogleServiceFact
 
     /** Setting Position Marker on current position **/
     function getCurrentLocation() {
-        geolocation.getLocation().then(function(data) {
-            vm.currentLat  = vm.formData.latitude  = parseFloat(data.coords.latitude).toFixed(3);
-            vm.currentLong = vm.formData.longitude = parseFloat(data.coords.longitude).toFixed(3);
-        })
+        GeolocationService.getCurrentLoc().then( function (coordinates) {
+            vm.currentLat  = vm.formData.latitude  = parseFloat(coordinates.lat).toFixed(3);
+            vm.currentLong = vm.formData.longitude = parseFloat(coordinates.long).toFixed(3);
+            GoogleServiceFactory.refresh(coordinates.lat, coordinates.long, false);
+        });
     }
 
     /** Gets coordinates based on mouse click on the map. When a click event is detected **/
@@ -49,7 +50,7 @@ function MapController($scope, $http, $rootScope, geolocation, GoogleServiceFact
                 // Once complete, clear the form (except location)
                 vm.formData.username = "";
                 // Refresh the map with new data
-                GoogleServiceFactory.refresh(vm.currentLat, vm.currentLong);
+                getCurrentLocation();
             })
             .error(function(data) {
                 console.log('Error: ' + data);

@@ -19,7 +19,7 @@
 
 </br>
 
-<div ng-show="queryCtrl.showResults" class="panel-footer fadeIn">
-  <p ng-if="queryCtrl.intersections"  class="text-center">Found {{queryCtrl.intersections}} Intersections for {{queryCtrl.linestringName}}</p>
-  <p ng-if="queryCtrl.noIntersections" class="text-center">No Intersections found for {{queryCtrl.linestringName}}</p>
+<!-- Footer panel for displaying count -->
+<div ng-show="queryCtrl.showBox" class="panel-footer fadeIn">
+    <p class="text-center">{{queryCtrl.intersections}}</p>
 </div>

@@ -4,7 +4,7 @@ angular
     .module('meanMapApp')
     .controller('QueryController', QueryController);
 
-function QueryController($scope, $http, $rootScope, geolocation, GoogleServiceFactory, RedirectFactory) {
+function QueryController($scope, $http, $rootScope, $window, $timeout, GeolocationService, GoogleServiceFactory, RedirectFactory) {
 
     var vm = this;
 
@@ -16,6 +16,8 @@ function QueryController($scope, $http, $rootScope, geolocation, GoogleServiceFa
         RedirectFactory.goTo(view).then( function (url) {
             vm.formView = url;
             $scope.$apply();
+            /** refreshing **/
+            getCurrentLoc();
         })
     };
 
@@ -25,20 +27,22 @@ function QueryController($scope, $http, $rootScope, geolocation, GoogleServiceFa
     vm.queryBody = {};
     vm.coords = {};
 
-    // Functions
-    // ----------------------------------------------------------------------------
+    getCurrentLoc();
 
-    // Get User's actual coordinates based on HTML5 at window load
-    geolocation.getLocation().then(function(data) {
-        vm.coords = {
-            lat: data.coords.latitude,
-            long: data.coords.longitude
-        };
+    /** Gets current location and refreshes with results or not **/
+    function getCurrentLoc(params) {
+        GeolocationService.getCurrentLoc().then( function (coordinates) {
+            vm.formData.longitude = parseFloat(coordinates.long).toFixed(3);
+            vm.formData.latitude  = parseFloat(coordinates.lat).toFixed(3);
+            if(params){
+              GoogleServiceFactory.refresh(coordinates.lat, coordinates.long, params);
+            }
+            if(_.isUndefined(params)){
+                GoogleServiceFactory.refresh(coordinates.lat, coordinates.long, false);
+            }
+        });
+    }
 
-        // Set the latitude and longitude equal to the HTML5 coordinates
-        vm.formData.longitude = parseFloat(vm.coords.long).toFixed(3);
-        vm.formData.latitude = parseFloat(vm.coords.lat).toFixed(3);
-    });
 
     // Get coordinates based on mouse click. When a click event is detected....
     $rootScope.$on("clicked", function() {
@@ -52,7 +56,6 @@ function QueryController($scope, $http, $rootScope, geolocation, GoogleServiceFa
 
     // Take query parameters and incorporate into a JSON queryBody
     vm.findClosestPoints = function() {
-
         // Assemble Query Body
         vm.queryBody = {
             longitude : parseFloat(vm.formData.longitude),
@@ -60,20 +63,34 @@ function QueryController($scope, $http, $rootScope, geolocation, GoogleServiceFa
             distance  : parseFloat(vm.formData.distance)
         };
 
+        if(vm.queryBody.distance < 0){
+            $window.alert('Distance cannot be negative!');
+            return;
+        }
+        if(vm.queryBody.distance === 0){
+            $window.alert('Distance cannot be 0!');
+            return;
+        }
+
         // Post the queryBody to the /query POST route to retrieve the filtered results
         $http.post('/find-neighbours', vm.queryBody)
 
         // Store the filtered results in queryResults
             .success(function(queryResults) {
-                // Pass the filtered results to the Google Map Service and refresh the map
-                GoogleServiceFactory.refresh(vm.queryBody.latitude, vm.queryBody.longitude, queryResults);
+
+                /** refreshing on current location and results **/
+                getCurrentLoc(queryResults);
+
                 // Count the number of records retrieved for the panel-footer
                 vm.queryCount = queryResults.length;
                 if (vm.queryCount===1) {
                     vm.neighbours = 'Neighbour';
                 } else if (vm.queryCount > 1) {
                     vm.neighbours = 'Neighbours';
+                } else if (vm.queryCount === 0){
+                    vm.neighbours = 'No neighbours found.';
                 }
+                vm.showBox = true;
             })
             .error(function(queryResults) {
                 console.log('Error ' + JSON.stringify(parseFloat(queryResults)));
@@ -89,25 +106,24 @@ function QueryController($scope, $http, $rootScope, geolocation, GoogleServiceFa
         $http.post('/find-poly-intersection', vm.queryBody)
         // Store the filtered results in queryResults
             .success(function(intersections) {
-                vm.lat = 40.00;
-                vm.lon = 42.16;
-                GoogleServiceFactory.refresh(vm.lat, vm.lon, intersections);
-                console.log(intersections);
-                vm.linestringName = vm.queryBody.name;
-                vm.showResults    = true;
-                if(intersections.length > 0){
-                    vm.intersections  = intersections.length;
-                    // Pass the filtered results to the Google Map Service and refresh the map
-                    GoogleServiceFactory.refresh(vm.queryBody.latitude, vm.queryBody.longitude, intersections);
-                } else if(_.isUndefined(intersections)){
-                    vm.noIntersections = true;
+                /** refreshing on current location and results **/
+                getCurrentLoc(intersections);
+
+                if(intersections.error){
+                    console.log('Error ' + intersections.error);
+                    vm.intersections = 'LineString '+vm.queryBody.name+' does not exist';
                 }
 
-            })
-            .error(function(err) {
-                if(err){
-                    console.log('Error ' + err);
+                vm.linestringName = vm.queryBody.name;
+                vm.queryCount = intersections.length;
+                if(vm.queryCount-1 > 1){
+                    vm.intersections  = 'Found '+(vm.queryCount-1)+' intersections for '+vm.linestringName;
+                } else if(vm.queryCount-1 === 1){
+                    vm.intersections  = 'Found '+(vm.queryCount-1)+' intersection for '+vm.linestringName;
+                } else if(vm.queryCount-1 === 0){
+                    vm.intersections = 'No Intersections found for '+vm.linestringName;
                 }
+                vm.showBox = true;
             });
     };
 
@@ -120,25 +136,23 @@ function QueryController($scope, $http, $rootScope, geolocation, GoogleServiceFa
         $http.post('/find-polygon-intersections', vm.queryBody)
         // Store the filtered results in queryResults
             .success(function(intersections) {
-                GoogleServiceFactory.refresh(60, -20, intersections);
-                console.log(intersections);
-                vm.polygonName = vm.queryBody.name;
-                vm.showResults    = true;
-                if(intersections.length > 0){
-                    vm.intersections  = intersections.length;
-                    // Pass the filtered results to the Google Map Service and refresh the map
+                /** refreshing on current location and results **/
+                getCurrentLoc(intersections);
 
-                } else if(_.isUndefined(intersections)){
-                    vm.noIntersections = true;
+                if(intersections.error){
+                    console.log('Error ' + intersections.error);
+                    vm.intersections = 'Polygon '+vm.queryBody.name+' does not exist';
                 }
-                vm.lat = 40.00;
-                vm.lon = 42.16;
-                GoogleServiceFactory.refresh(vm.lat, vm.lon, intersections);
-            })
-            .error(function(err) {
-                if(err){
-                    console.log('Error ' + err);
+
+                vm.polygonName = vm.queryBody.name;
+                vm.queryCount  = intersections.length;
+
+                if(vm.queryCount > 1){
+                    vm.intersections  = 'Found '+(vm.queryCount-1)+' intersections for '+vm.polygonName;
+                } else if(vm.queryCount === 1){
+                    vm.intersections  = 'No Intersections found for '+vm.polygonName;
                 }
+                vm.showBox = true;
             });
     };
 
@@ -151,15 +165,23 @@ function QueryController($scope, $http, $rootScope, geolocation, GoogleServiceFa
         $http.post('/find-points-inside-polygon', vm.queryBody)
         // Store the filtered results in queryResults
             .success(function(points) {
-                console.log(points);
-                vm.lat = 40.00;
-                vm.lon = 42.16;
-                GoogleServiceFactory.refresh(vm.lat, vm.lon, points);
-            })
-            .error(function(err) {
-                if(err){
-                    console.log('Error ' + err);
+                /** refreshing on current location and results **/
+                getCurrentLoc(points);
+
+                if(points.error){
+                    console.log('Error ' + points.error);
+                    vm.points = 'Polygon '+vm.queryBody.name+' does not exist';
                 }
+
+                vm.polygonName = vm.queryBody.name;
+                vm.queryCount  = points.length;
+
+                if(vm.queryCount > 1){
+                    vm.points  = 'Found '+(vm.queryCount-1)+' points for '+vm.polygonName;
+                } else if(vm.queryCount === 1){
+                    vm.points  = 'No points found for '+vm.polygonName;
+                }
+                vm.showBox = true;
             });
     };
 

@@ -18,9 +18,7 @@
 
 </br>
 
-<div ng-show="queryCtrl.areaIntersection" class="panel-footer fadeIn">
-<p class="text-center">We Found an intersection between
-{{queryCtrl.formData.areaId1}}
-and
-{{queryCtrl.formData.areaId2}}</p>
+<!-- Footer panel for displaying count -->
+<div ng-show="queryCtrl.showBox" class="panel-footer fadeIn">
+    <p class="text-center">{{queryCtrl.intersections}}</p>
 </div>

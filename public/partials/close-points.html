@@ -27,9 +27,8 @@
 
 </br>
 
-<!-- Footer panel for displaying count. Note how it will only display if queryCount is greater than 0 -->
-<div ng-show="queryCtrl.queryCount>0" class="panel-footer fadeIn">
-<p class="text-center">We Found
-{{queryCtrl.queryCount}}
-{{queryCtrl.neighbours}}.</p>
+<!-- Footer panel for displaying count -->
+<div ng-show="queryCtrl.showBox" class="panel-footer fadeIn">
+    <p ng-if="queryCtrl.queryCount >0" class="text-center">We Found {{queryCtrl.queryCount}} {{queryCtrl.neighbours}}.</p>
+    <p ng-if="queryCtrl.queryCount === 0" class="text-center">{{queryCtrl.neighbours}}</p>
 </div>
