@@ -25,11 +25,13 @@ function postGeometry(req) {
     return new Promise( function (resolve, reject) {
         // Creates a new Geometry based on the Mongoose schema and the post body
         var newGeometry = new Geometries(req.body);
+        console.log('req',req.body)
         // New Geometry is saved in the db.
         newGeometry.save(function(err) {
             if (err){
                 return reject({err : 'Error while saving geometries'});
             }
+            console.log('ok')
             // If no errors are found, it responds with a JSON of the new polygon
             return resolve(req.body);
         });

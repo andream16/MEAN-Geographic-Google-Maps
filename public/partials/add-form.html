@@ -10,8 +10,8 @@
         <!-- Panel Body -->
         <div class="panel-body fadeIn">
             <!-- Creates Form (novalidate disables HTML validation, Angular will control) -->
-            <form name="addForm" novalidate>
-                <!-- Text Boxes and Other User Inputs. Note ng-model binds the values to Angular $scope -->
+            <!--<form name="addForm" novalidate>
+                &lt;!&ndash; Text Boxes and Other User Inputs. Note ng-model binds the values to Angular $scope &ndash;&gt;
                 <div class="form-group">
                     <label for="username">Id
                         <span class="badge">All fields required</span>
@@ -27,9 +27,16 @@
                     <input type="text" class="form-control" id="longitude" value="-98.350" ng-model="mapCtrl.formData.longitude" readonly>
                 </div>
 
-                <!-- Submit Creates An User but only if the Form has been fully filled.  -->
+                &lt;!&ndash; Submit Creates An User but only if the Form has been fully filled.  &ndash;&gt;
                 <button type="submit" class="btn btn-danger btn-block" ng-click="mapCtrl.createPoint()" ng-disabled="addForm.$invalid">Submit</button>
-            </form>
+                <br>
+                <div align="center">
+                    <button type="button" class="btn btn-success btn-md " ng-click="mapCtrl.goTo('Add LineStrings')">Add LineStrings</button>
+                    <button type="button" class="btn btn-warning btn-md " ng-click="mapCtrl.goTo('Add Polygons')">Add Polygons</button>
+                </div>
+            </form>-->
+            <!-- Panel Body -->
+            <div class="panel-body" ng-include src="mapCtrl.formView"></div>
         </div>
     </div>
 </div>

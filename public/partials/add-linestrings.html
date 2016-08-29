@@ -1,0 +1,17 @@
+<form name="addForm" novalidate>
+    <!--Text Boxes and Other User Inputs. Note ng-model binds the values to Angular $scope-->
+    <div class="form-group">
+        <label for="username">Id
+            <span class="badge">All fields required</span>
+        </label>
+        <input type="text" class="form-control" id="username" placeholder="poly" ng-model="mapCtrl.formData.username" required>
+    </div>
+
+    <!--Submit Creates An User but only if the Form has been fully filled.-->
+    <button type="submit" class="btn btn-danger btn-block" ng-click="mapCtrl.createLinestring()" ng-disabled="addForm.$invalid">Submit</button>
+    <br>
+    <div align="center">
+        <button type="button" class="btn btn-success btn-md " ng-click="mapCtrl.goTo('Add Points')">Add Points</button>
+        <button type="button" class="btn btn-warning btn-md " ng-click="mapCtrl.goTo('Add Polygons')">Add Polygons</button>
+    </div>
+</form>
