@@ -1,0 +1,7 @@
+{
+  "template": {
+    "add-linestrings" : "partials/add-linestrings.html",
+    "add-polygons"    : "partials/add-polygons.html",
+    "add-points"      : "partials/add-points.html"
+  }
+}
