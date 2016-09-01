@@ -1,5 +1,3 @@
-'use strict';
-
 angular
     .module('meanMapApp')
     .controller('MapController', MapController);
@@ -45,48 +43,14 @@ function MapController($scope, $http, $rootScope, GeolocationService, GoogleServ
 
     /** Based on which Geometry we want to add **/
     function checkView() {
-        if(vm.formView === 'partials/add-points.html'){
-            /** Gets coordinates based on mouse click on the map. When a click event is detected **/
-            $rootScope.$on("clicked", function(){
+        $rootScope.$on("clicked", function(){
+            if(vm.formView === 'partials/add-points.html'){
                 $scope.$apply(function(){
                     vm.formData.latitude  = parseFloat(GoogleServiceFactory.clickLat).toFixed(3);
                     vm.formData.longitude = parseFloat(GoogleServiceFactory.clickLong).toFixed(3);
                 });
-            });
-        }
-        if(vm.formView === 'partials/add-linestrings.html'){
-            /** Gets coordinates based on mouse click on the map. When a click event is detected **/
-            $rootScope.$on("clicked", function(){
-                    map = new google.maps.Map(document.getElementById('map'), {
-                        zoom: 3,
-                        center: {lat: 40, lng: -30}  // Center the map on Chicago, USA.
-                    });
-                    var poly = new google.maps.Polyline({
-                        strokeColor: '#000000',
-                        strokeOpacity: 1.0,
-                        strokeWeight: 3
-                    });
-                    poly.setMap(map);
-                    // Add a listener for the click event
-                    map.addListener('click', addLatLng);
-                // Handles click events on a map, and adds a new point to the Polyline.
-                function addLatLng(event) {
-                    path = poly.getPath();
-                    // Because path is an MVCArray, we can simply append a new coordinate
-                    // and it will automatically appear.
-                    path.push(event.latLng);
-                    // Add a new marker at the new plotted point on the polyline.
-                    var marker = new google.maps.Marker({
-                        position: event.latLng,
-                        title: '#' + path.getLength(),
-                        map: map
-                    });
-                }
-            });
-        }
-        if(vm.formView === 'partials/add-polygons.html'){
-            /** Gets coordinates based on mouse click on the map. When a click event is detected **/
-            $rootScope.$on("clicked", function(){
+            }
+            if(vm.formView === 'partials/add-linestrings.html'){
                 map = new google.maps.Map(document.getElementById('map'), {
                     zoom: 3,
                     center: {lat: 40, lng: -30}  // Center the map on Chicago, USA.
@@ -98,9 +62,9 @@ function MapController($scope, $http, $rootScope, GeolocationService, GoogleServ
                 });
                 poly.setMap(map);
                 // Add a listener for the click event
-                map.addListener('click', addLatLng);
+                map.addListener('click', addLatLngLine);
                 // Handles click events on a map, and adds a new point to the Polyline.
-                function addLatLng(event) {
+                function addLatLngLine(event) {
                     path = poly.getPath();
                     // Because path is an MVCArray, we can simply append a new coordinate
                     // and it will automatically appear.
@@ -112,13 +76,39 @@ function MapController($scope, $http, $rootScope, GeolocationService, GoogleServ
                         map: map
                     });
                 }
-            });
-        }
+            }
+            if(vm.formView === 'partials/add-polygons.html'){
+                map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 3,
+                    center: {lat: 40, lng: -30}  // Center the map on Chicago, USA.
+                });
+                var poly = new google.maps.Polyline({
+                    strokeColor: '#000000',
+                    strokeOpacity: 1.0,
+                    strokeWeight: 3
+                });
+                poly.setMap(map);
+                // Add a listener for the click event
+                map.addListener('click', addLatLngPoly);
+                // Handles click events on a map, and adds a new point to the Polyline.
+                function addLatLngPoly(event) {
+                    path = poly.getPath();
+                    // Because path is an MVCArray, we can simply append a new coordinate
+                    // and it will automatically appear.
+                    path.push(event.latLng);
+                    // Add a new marker at the new plotted point on the polyline.
+                    var marker = new google.maps.Marker({
+                        position: event.latLng,
+                        title: '#' + path.getLength(),
+                        map: map
+                    });
+                }
+            }
+        });
     }
 
     /** Creates a New Marker on submit **/
     vm.createPoint = function() {
-
         // Grabs all of the text box fields
         var userData = {
             name        : vm.formData.username,
@@ -127,18 +117,7 @@ function MapController($scope, $http, $rootScope, GeolocationService, GoogleServ
                             type        : 'Point'
             }
         };
-
-        // Saves marker data to the db
-        $http.post('/geometries', userData)
-            .success(function() {
-                // Once complete, clear the form (except location)
-                vm.formData.username = "";
-                // Refresh the map with new data
-                getCurrentLocation();
-            })
-            .error(function(data) {
-                console.log('Error: ' + data);
-            });
+        postData(userData);
     };
 
     /** Creates a New LineString on submit **/
@@ -152,7 +131,6 @@ function MapController($scope, $http, $rootScope, GeolocationService, GoogleServ
                 vm.cords.push([ vm.lat , vm.lon]);
             }
         }
-
         // Grabs all of the text box fields
         if(vm.cords){
             var userData = {
@@ -162,17 +140,7 @@ function MapController($scope, $http, $rootScope, GeolocationService, GoogleServ
                     type        : 'LineString'
                 }
             };
-            // Saves marker data to the db
-            $http.post('/geometries', userData)
-                .success(function(res) {
-                    // Once complete, clear the form (except location)
-                    vm.formData.username = "";
-                    // Refresh the map with new data
-                    getCurrentLocation();
-                    if(res.error){
-                        console.log('Error'+res.error);
-                    }
-                });
+            postData(userData);
         }
     };
 
@@ -187,11 +155,9 @@ function MapController($scope, $http, $rootScope, GeolocationService, GoogleServ
                 vm.polygon.push([ vm.lat , vm.lon]);
             }
         }
-
         if(_.head(vm.polygon) !== _.last(vm.polygon)){
             vm.polygon.push(_.head(vm.polygon));
         }
-
         // Grabs all of the text box fields
         if(vm.polygon){
             var userData = {
@@ -201,18 +167,23 @@ function MapController($scope, $http, $rootScope, GeolocationService, GoogleServ
                     type        : 'Polygon'
                 }
             };
-            // Saves marker data to the db
-            $http.post('/geometries', userData)
-                .success(function(res) {
-                    // Once complete, clear the form (except location)
-                    vm.formData.username = "";
-                    // Refresh the map with new data
-                    getCurrentLocation();
-                    if(res.error){
-                        console.log('Error'+res.error);
-                    }
-                });
         }
+        postData(userData);
     };
+
+    /** Posts a new geometry given userData **/
+    function postData(geometry){
+        // Saves marker data to the db
+        $http.post('/geometries', geometry)
+            .success(function(res) {
+                // Once complete, clear the form (except location)
+                vm.formData.username = "";
+                // Refresh the map with new data
+                getCurrentLocation();
+                if(res.error){
+                    console.log('Error'+res.error);
+                }
+            });
+    }
 
 }
