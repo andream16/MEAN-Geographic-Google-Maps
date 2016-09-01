@@ -4,16 +4,24 @@ angular
     .module('meanMapApp')
     .controller('QueryController', QueryController);
 
-function QueryController($scope, $http, $rootScope, $window, $timeout, GeolocationService, GoogleServiceFactory, RedirectFactory) {
+function QueryController($scope, $http, $rootScope, $window, GeolocationService, GoogleServiceFactory, RedirectFactory) {
 
     var vm = this;
 
     /** Default Search View **/
     vm.formView = 'partials/close-points.html';
+    vm.showBoxPoint      = false;
+    vm.showBoxPolygon    = false;
+    vm.showBoxInside     = false;
+    vm.showBoxLineString = false;
 
     /** Used to browse search views **/
     vm.goToView = function(view){
         RedirectFactory.goTo(view).then( function (url) {
+            vm.showBoxPoint      = false;
+            vm.showBoxPolygon    = false;
+            vm.showBoxInside     = false;
+            vm.showBoxLineString = false;
             vm.formView = url;
             $scope.$apply();
             /** refreshing **/
@@ -82,15 +90,15 @@ function QueryController($scope, $http, $rootScope, $window, $timeout, Geolocati
                 getCurrentLoc(queryResults);
 
                 // Count the number of records retrieved for the panel-footer
-                vm.queryCount = queryResults.length;
-                if (vm.queryCount===1) {
+                vm.queryCountPoint = queryResults.length;
+                if (vm.queryCountPoint===1) {
                     vm.neighbours = 'Neighbour';
-                } else if (vm.queryCount > 1) {
+                } else if (vm.queryCountPoint > 1) {
                     vm.neighbours = 'Neighbours';
-                } else if (vm.queryCount === 0){
+                } else if (vm.queryCountPoint === 0){
                     vm.neighbours = 'No neighbours found.';
                 }
-                vm.showBox = true;
+                vm.showBoxPoint = true;
             })
             .error(function(queryResults) {
                 console.log('Error ' + JSON.stringify(parseFloat(queryResults)));
@@ -115,15 +123,15 @@ function QueryController($scope, $http, $rootScope, $window, $timeout, Geolocati
                 }
 
                 vm.linestringName = vm.queryBody.name;
-                vm.queryCount = intersections.length;
-                if(vm.queryCount-1 > 1){
-                    vm.intersections  = 'Found '+(vm.queryCount-1)+' intersections for '+vm.linestringName;
-                } else if(vm.queryCount-1 === 1){
-                    vm.intersections  = 'Found '+(vm.queryCount-1)+' intersection for '+vm.linestringName;
-                } else if(vm.queryCount-1 === 0){
+                vm.queryCountLineString = intersections.length;
+                if(vm.queryCountLineString-1 > 1){
+                    vm.intersections  = 'Found '+(vm.queryCountLineString-1)+' intersections for '+vm.linestringName;
+                } else if(vm.queryCountLineString-1 === 1){
+                    vm.intersections  = 'Found '+(vm.queryCountLineString-1)+' intersection for '+vm.linestringName;
+                } else if(vm.queryCountLineString-1 === 0){
                     vm.intersections = 'No Intersections found for '+vm.linestringName;
                 }
-                vm.showBox = true;
+                vm.showBoxLineString = true;
             });
     };
 
@@ -145,14 +153,14 @@ function QueryController($scope, $http, $rootScope, $window, $timeout, Geolocati
                 }
 
                 vm.polygonName = vm.queryBody.name;
-                vm.queryCount  = intersections.length;
+                vm.queryCountPolygon  = intersections.length;
 
-                if(vm.queryCount > 1){
-                    vm.intersections  = 'Found '+(vm.queryCount-1)+' intersections for '+vm.polygonName;
+                if(vm.queryCountPolygon > 1){
+                    vm.intersections  = 'Found '+(vm.queryCountPolygon-1)+' intersections for '+vm.polygonName;
                 } else if(vm.queryCount === 1){
                     vm.intersections  = 'No Intersections found for '+vm.polygonName;
                 }
-                vm.showBox = true;
+                vm.showBoxPolygon = true;
             });
     };
 
@@ -174,14 +182,14 @@ function QueryController($scope, $http, $rootScope, $window, $timeout, Geolocati
                 }
 
                 vm.polygonName = vm.queryBody.name;
-                vm.queryCount  = points.length;
+                vm.queryCountInside  = points.length;
 
-                if(vm.queryCount > 1){
-                    vm.points  = 'Found '+(vm.queryCount-1)+' points for '+vm.polygonName;
-                } else if(vm.queryCount === 1){
+                if(vm.queryCountInside > 1){
+                    vm.points  = 'Found '+(vm.queryCountInside-1)+' points for '+vm.polygonName;
+                } else if(vm.queryCountInside === 1){
                     vm.points  = 'No points found for '+vm.polygonName;
                 }
-                vm.showBox = true;
+                vm.showBoxInside = true;
             });
     };
 
