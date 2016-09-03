@@ -110,7 +110,7 @@ function MapController($scope, GeometryFactory, $rootScope, GeolocationService, 
     }
 
     vm.createPoint = function(){
-        GeometryFactory.createPoint(vm.formData.username, [parseFloat(vm.formData.latitude), parseFloat(vm.formData.longitude)], 'Point').then( function () {
+        GeometryFactory.createPoint(vm.formData.username, [ parseFloat(vm.formData.longitude), parseFloat(vm.formData.latitude) ], 'Point').then( function () {
             // Once complete, clear the form (except location)
             vm.formData.username = "";
             // Refresh the map with new data

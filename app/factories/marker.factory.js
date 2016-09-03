@@ -21,7 +21,7 @@ function findNeighbours(req) {
             query = query.where('geo').near({
                 center: {
                     type: 'Point',
-                    coordinates: [lat, long]
+                    coordinates: [long, lat]
                 },
 
                 // Converting meters to miles. Specifying spherical geometry (for globe)

@@ -40,12 +40,12 @@ angular
                 var linestringCoords = coordinates.getArray();
                 linestringData = {};
                 vm.cords = [];
-                
+
                 for(var j = 0; j<linestringCoords.length; j++){
                     if(linestringCoords[j]){
-                        vm.lat  = parseFloat(linestringCoords[j].lat());
-                        vm.lon = parseFloat(linestringCoords[j].lng());
-                        vm.cords.push([ vm.lat , vm.lon]);
+                        vm.lat  =  parseFloat(linestringCoords[j].lat().toFixed(3));
+                        vm.lon  =  parseFloat(linestringCoords[j].lng().toFixed(3));
+                        vm.cords.push([ vm.lon, vm.lat ]);
                     }
                 }
                 // Grabs all of the text box fields
@@ -79,9 +79,9 @@ angular
                 vm.polygon = [];
                 for (var j = 0; j < polygonCoords.length; j++) {
                     if (polygonCoords[j]) {
-                        vm.lat = parseFloat(polygonCoords[j].lat());
-                        vm.lon = parseFloat(polygonCoords[j].lng());
-                        vm.polygon.push([vm.lat, vm.lon]);
+                        vm.lat  =  parseFloat(polygonCoords[j].lat().toFixed(3));
+                        vm.lon  =  parseFloat(polygonCoords[j].lng().toFixed(3));
+                        vm.polygon.push([ vm.lon, vm.lat ]);
                     }
                 }
                 // Grabs all of the text box fields

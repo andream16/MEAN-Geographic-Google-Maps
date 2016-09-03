@@ -28,13 +28,12 @@ function postGeometry(req) {
         console.log('req',req.body);
         // New Geometry is saved in the db.
         newGeometry.save(function(err) {
+            console.log('err',err);
             if (err){
                 return reject({err : 'Error while saving geometries'});
             }
-            // If no errors are found, it responds with a JSON of the new polygon
+            // If no errors are found, it responds with a JSON of the new geometry
             return resolve(req.body);
         });
-    }, function (){
-        return reject({err : 'Error while posting a new geometry'});
     });
 }

@@ -25,7 +25,7 @@
 
                         // Converts each of the JSON records into Google Maps Location format (Note [Lat, Lng] format).
                         locations.push({
-                            latlon: new google.maps.LatLng(markers.geo.coordinates[0], markers.geo.coordinates[1]),
+                            latlon: new google.maps.LatLng( markers.geo.coordinates[1], markers.geo.coordinates[0] ),
                             message: new google.maps.InfoWindow({
                                 content: contentString,
                                 maxWidth: 320
@@ -48,8 +48,8 @@
 
                         for (var j = 0; j < linestrings.geo.coordinates.length; j++) {
                             polyline_coordinates.push({
-                                lat: linestrings.geo.coordinates[j][0],
-                                lng: linestrings.geo.coordinates[j][1]
+                                lat: linestrings.geo.coordinates[j][1],
+                                lng: linestrings.geo.coordinates[j][0]
                             });
                         }
 
@@ -80,8 +80,8 @@
 
                         for (var j = 0; j < coords.length; j++) {
                             polygon_coordinates.push({
-                                lat: coords[j][0],
-                                lng: coords[j][1]
+                                lat: coords[j][1],
+                                lng: coords[j][0]
                             });
                         }
 
