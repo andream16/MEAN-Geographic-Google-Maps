@@ -22,5 +22,6 @@ geometry.pre('save', function(next){
     next();
 });
 
+//Setting 2dsphere index onm geo field in order to use geoQueries
 geometry.index({geo : '2dsphere'});
 module.exports = mongoose.model('geometry', geometry);

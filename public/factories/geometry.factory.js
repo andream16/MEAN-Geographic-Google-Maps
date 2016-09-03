@@ -5,109 +5,63 @@ angular
     .module('meanMapApp')
     .factory('GeometryFactory', function ($http) {
 
-        var vm             = this;
-        var polygonData    = {};
-        vm.polygon         = [];
-        var linestringData = {};
-        vm.cords           = [];
+        var vm = this;
+        vm.coordinates;
 
-
-        /** Creates a New Marker on submit **/
-        function createPoint(name, coordinates, type) {
-            return new Promise( function (resolve, reject) {
-                // Grabs all of the text box fields
-                var markerData = {
-                    name        : name,
-                    geo         : {
-                        coordinates : coordinates,
-                        type        : type
-                    }
-                };
-                if(markerData){
-                    postGeometry(markerData).then(function (res) {
-                        if(res.err){
-                            return reject(res.err);
-                        }
-                        return resolve(res);
-                    });
+        /** Creates a new Geometry based on its type and posts it **/
+        function createGeometry(name, coordinates, type) {
+          return new Promise( function (resolve, reject){
+                switch(type){
+                    case 'Point':
+                        vm.coordinates = coordinates;
+                        break;
+                    case 'LineString':
+                        vm.coordinates = coordinateParser(coordinates);
+                        break;
+                    case 'Polygon':
+                        vm.coordinates = coordinateParser(coordinates);
+                        vm.coordinates = polygonChecker(vm.coordinates);
                 }
-            });
-        }
-
-        /** Creates a New LineString on submit **/
-        function createLinestring(name, coordinates, type) {
-            return new Promise( function (resolve, reject) {
-                var linestringCoords = coordinates.getArray();
-                linestringData = {};
-                vm.cords = [];
-
-                for(var j = 0; j<linestringCoords.length; j++){
-                    if(linestringCoords[j]){
-                        vm.lat  =  parseFloat(linestringCoords[j].lat().toFixed(3));
-                        vm.lon  =  parseFloat(linestringCoords[j].lng().toFixed(3));
-                        vm.cords.push([ vm.lon, vm.lat ]);
-                    }
-                }
-                // Grabs all of the text box fields
-                if(vm.cords){
-                    linestringData = {
-                        name: name,
-                        geo: {
-                            coordinates: vm.cords,
-                            type: type
+                if(vm.coordinates){
+                    var geometryData = {
+                        name        : name,
+                        geo         : {
+                            coordinates : vm.coordinates,
+                            type        : type
                         }
                     };
                 }
-                if(linestringData){
-                    postGeometry(linestringData).then(function (res) {
-                        linestringData = {};
-                        vm.cords = [];
+                if(geometryData){
+                    postGeometry(geometryData).then(function (res) {
                         if(res.err){
                             return reject(res.err);
                         }
                         return resolve(res);
                     });
                 }
-            });
+          })
         }
 
-        /** Creates a New Polygon on submit **/
-        function createPolygon(name, coordinates, type) {
-            return new Promise( function (resolve, reject) {
-                var polygonCoords = coordinates.getArray();
-                polygonData = {};
-                vm.polygon = [];
-                for (var j = 0; j < polygonCoords.length; j++) {
-                    if (polygonCoords[j]) {
-                        vm.lat  =  parseFloat(polygonCoords[j].lat().toFixed(3));
-                        vm.lon  =  parseFloat(polygonCoords[j].lng().toFixed(3));
-                        vm.polygon.push([ vm.lon, vm.lat ]);
-                    }
+        /** In case of LineStrings and Polygons parses their coordinates in proper format **/
+        function coordinateParser(coordinates){
+            vm.cords = [];
+            var arrayCoordinates = coordinates.getArray();
+            for(var j = 0; j<arrayCoordinates.length; j++){
+                if(arrayCoordinates[j]){
+                    vm.lat  =  parseFloat(arrayCoordinates[j].lat().toFixed(3));
+                    vm.lon  =  parseFloat(arrayCoordinates[j].lng().toFixed(3));
+                    vm.cords.push([ vm.lon, vm.lat ]);
                 }
-                // Grabs all of the text box fields
-                if(vm.polygon){
-                    if (_.head(vm.polygon) !== _.last(vm.polygon)) {
-                        vm.polygon.push(_.head(vm.polygon));
-                    }
-                    polygonData = {
-                        name: name,
-                        geo: {
-                            coordinates: [vm.polygon],
-                            type: type
-                        }
-                    };
-                }
-                if(polygonData){
-                    postGeometry(polygonData).then(function (res) {
-                        polygonData = {};
-                        vm.polygon = [];
-                        if(res.err){
-                            return reject(res.err);
-                        }
-                        return resolve(res);
-                    });
-                }
-            });
+            }
+            return vm.cords;
+        }
+
+        /** Checks if a polygon is closed, if not it closes it **/
+        function polygonChecker(polygonCoordinates){
+            if (_.head(polygonCoordinates) !== _.last(polygonCoordinates)) {
+                polygonCoordinates.push(_.head(polygonCoordinates));
+            }
+            return [polygonCoordinates];
         }
 
         /** Posts a new geometry given userData **/
@@ -125,8 +79,6 @@ angular
         }
 
         return {
-            createPoint      : createPoint,
-            createLinestring : createLinestring,
-            createPolygon    : createPolygon
+            createGeometry : createGeometry
         }
     });

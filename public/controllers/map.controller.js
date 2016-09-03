@@ -7,11 +7,12 @@ function MapController($scope, GeometryFactory, $rootScope, GeolocationService, 
     /** Variable Initialization **/
     var vm      = this;
     vm.formData = {};
-    vm.coords   = {};
-    vm.linestringCoords = {};
     var linestringPath;
     var polygonPath;
     var map = null;
+    var geomPath;
+    vm.lat;
+    vm.lng;
 
     /** Default Search View **/
     vm.formView = VIEWS.point;
@@ -50,11 +51,10 @@ function MapController($scope, GeometryFactory, $rootScope, GeolocationService, 
                     vm.formData.latitude  = parseFloat(GoogleServiceFactory.clickLat).toFixed(3);
                     vm.formData.longitude = parseFloat(GoogleServiceFactory.clickLong).toFixed(3);
                 });
-            }
-            if(vm.formView === VIEWS.linestring){
+            } else {
                 map = new google.maps.Map(document.getElementById('map'), {
                     zoom: 3,
-                    center: {lat: 40, lng: -30}  // Center the map on Chicago, USA.
+                    center: {lat: 39, lng: 8}
                 });
                 var poly = new google.maps.Polyline({
                     strokeColor: '#000000',
@@ -63,54 +63,31 @@ function MapController($scope, GeometryFactory, $rootScope, GeolocationService, 
                 });
                 poly.setMap(map);
                 // Add a listener for the click event
-                map.addListener('click', addLatLngLine);
+                map.addListener('click', addLatLng);
                 // Handles click events on a map, and adds a new point to the Polyline.
-                function addLatLngLine(event) {
-                    linestringPath = poly.getPath();
-                    // Because path is an MVCArray, we can simply append a new coordinate
-                    // and it will automatically appear.
-                    linestringPath.push(event.latLng);
+                function addLatLng(event) {
+                    if(vm.formView === VIEWS.linestring){
+                      linestringPath = poly.getPath();
+                      linestringPath.push(event.latLng);
+                      geomPath = linestringPath;
+                    } else {
+                      polygonPath = poly.getPath();
+                      polygonPath.push(event.latLng);
+                      geomPath = polygonPath;
+                    }
                     // Add a new marker at the new plotted point on the polyline.
                     var marker = new google.maps.Marker({
                         position: event.latLng,
-                        title: '#' + linestringPath.getLength(),
+                        title: '#' + geomPath.getLength(),
                         map: map
                     });
                 }
             }
-            if(vm.formView === VIEWS.polygon){
-                map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 3,
-                    center: {lat: 40, lng: -30}  // Center the map on Chicago, USA.
-                });
-                var poly = new google.maps.Polyline({
-                    strokeColor: '#000000',
-                    strokeOpacity: 1.0,
-                    strokeWeight: 3
-                });
-                poly.setMap(map);
-                // Add a listener for the click event
-                map.addListener('click', addLatLngPoly);
-                // Handles click events on a map, and adds a new point to the Polyline.
-                function addLatLngPoly(event) {
-                    polygonPath = poly.getPath();
-                    // Because path is an MVCArray, we can simply append a new coordinate
-                    // and it will automatically appear.
-                    polygonPath.push(event.latLng);
-                    // Add a new marker at the new plotted point on the polyline.
-                    var marker = new google.maps.Marker({
-                        position: event.latLng,
-                        title: '#' + polygonPath.getLength(),
-                        map: map
-                    });
-                }
-            }
-
         });
     }
 
     vm.createPoint = function(){
-        GeometryFactory.createPoint(vm.formData.username, [ parseFloat(vm.formData.longitude), parseFloat(vm.formData.latitude) ], 'Point').then( function () {
+        GeometryFactory.createGeometry(vm.formData.username, [ parseFloat(vm.formData.longitude), parseFloat(vm.formData.latitude) ], 'Point').then( function () {
             // Once complete, clear the form (except location)
             vm.formData.username = "";
             // Refresh the map with new data
@@ -119,7 +96,7 @@ function MapController($scope, GeometryFactory, $rootScope, GeolocationService, 
     };
 
     vm.createLinestring = function () {
-        GeometryFactory.createLinestring(vm.formData.username, linestringPath, 'LineString').then( function () {
+        GeometryFactory.createGeometry(vm.formData.username, linestringPath, 'LineString').then( function () {
             // Once complete, clear the form (except location)
             vm.formData.username = "";
             // Refresh the map with new data
@@ -128,7 +105,7 @@ function MapController($scope, GeometryFactory, $rootScope, GeolocationService, 
 
     };
     vm.createPolygon = function () {
-        GeometryFactory.createPolygon(vm.formData.username, polygonPath, 'Polygon').then( function () {
+        GeometryFactory.createGeometry(vm.formData.username, polygonPath, 'Polygon').then( function () {
             // Once complete, clear the form (except location)
             vm.formData.username = "";
             // Refresh the map with new data

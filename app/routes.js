@@ -9,8 +9,8 @@ module.exports = function(app) {
 
     /** Getting all the geometries **/
     app.get('/geometries', function(req, res) {
-        GeometryFactory.getGeometries().then( function (geometry) {
-            res.json(geometry);
+        GeometryFactory.getGeometries().then( function (geometries) {
+            res.json(geometries);
         }, function (error) {
             res.json(error);
         });
@@ -25,7 +25,7 @@ module.exports = function(app) {
         });
     });
 
-    // Retrieves JSON records for all points near a given distance from a certain point
+    /** Retrieves JSON records for all points near a given distance from a certain point **/
     app.post('/find-neighbours', function(req, res) {
         MarkerFactory.findNeighbours(req).then( function (neighbours) {
             return res.json(neighbours);
@@ -34,7 +34,7 @@ module.exports = function(app) {
         })
     });
 
-    // Retrieves JSON records for all linestrings intersecting a given one
+    /** Retrieves JSON records for all linestrings intersecting a given one **/
     app.post('/find-poly-intersection', function(req, res) {
         LinestringFactory.findIntersections(req).then( function (linestrings) {
             return res.json(linestrings);
@@ -43,7 +43,7 @@ module.exports = function(app) {
         })
     });
 
-    // Retrieves JSON records for all polygons intersecting a given one
+    /** Retrieves JSON records for all polygons intersecting a given one **/
     app.post('/find-polygon-intersections', function(req, res) {
         PolygonFactory.findIntersections(req).then( function (polygons) {
             return res.json(polygons);
@@ -52,7 +52,7 @@ module.exports = function(app) {
         })
     });
 
-    // Retrieves JSON records for all points inside a given polygon
+    /** Retrieves JSON records for all points inside a given polygon **/
     app.post('/find-points-inside-polygon', function(req, res) {
         PolygonFactory.findPointsInsidePolygon(req).then( function (points) {
             return res.json(points);

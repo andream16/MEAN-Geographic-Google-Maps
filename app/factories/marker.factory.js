@@ -39,8 +39,6 @@ function findNeighbours(req) {
             return resolve(markers);
         });
 
-    }, function (){
-       return reject({error : 'Error, no neighbours found'});
     });
 
 }

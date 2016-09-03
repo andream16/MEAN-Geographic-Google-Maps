@@ -15,8 +15,6 @@ function getGeometries() {
             // If no errors are found, it responds with a JSON of all geometries
             return resolve(geometries);
         });
-    }, function (){
-        return reject({err : 'Error while fetching geometries'});
     });
 }
 
