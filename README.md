@@ -3,6 +3,9 @@
 
 This project is essentially a fork of  @Ahmed Haque Making MEAN Apps with Google Maps available at https://github.com/afhaque/MeanMapAppV2.0
 
+[![1.png](https://s18.postimg.org/hut102ppl/image.png)](https://postimg.org/image/h5a8npp5x/)
+[![2.png](https://s10.postimg.org/imux101rd/image.png)](https://postimg.org/image/bwefrkelh/)
+
 I made different changes to project's structure and added Polyline and Polygon support with some Geospatial Queries on the latter objects.
 
 ###What you need to run the project:
