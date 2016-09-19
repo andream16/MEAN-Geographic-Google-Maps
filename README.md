@@ -19,3 +19,5 @@ I made different changes to project's structure and added Polyline and Polygon s
 ###How to run the project:
  - if you have nodemon: `nodemon server.js`
  - else: `npm start server.js`
+
+###Remember to change `Google-Maps-Key` with yours.
