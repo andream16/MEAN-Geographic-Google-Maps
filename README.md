@@ -111,4 +111,5 @@ I made different changes to project's structure and added Polyline and Polygon s
 }`
 
 
-###I provided an example collection `geometry-collection.json` that is possible to import through tools like `RoboMongo` or `MongoChef`.
+###MongoDB Collection
+I provided an example collection `geometry-collection.json` that is possible to import through tools like `RoboMongo` or `MongoChef`.
