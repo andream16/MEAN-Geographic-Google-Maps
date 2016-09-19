@@ -21,3 +21,87 @@ I made different changes to project's structure and added Polyline and Polygon s
  - else: `npm start server.js`
 
 ###Remember to change `Google-Maps-Key` with yours.
+
+###Example of Geometry Objects
+
+####Point
+`{ 
+    "name" : "point1",
+    "geo" : {
+        "coordinates" : [
+            52.483, 
+            16.084
+        ], 
+        "type" : "Point"
+    }
+}`
+
+#####LineString
+`{ 
+    "name" : "linestring2",
+    "geo" : {
+        "coordinates" : [
+            [
+                38.232, 
+                38.823
+            ], 
+            [
+                70.576, 
+                51.289
+            ], 
+            [
+                91.67, 
+                59.801
+            ], 
+            [
+                91.318, 
+                68.073
+            ]
+        ], 
+        "type" : "LineString"
+    }
+}`
+
+####Polygon (it has to be closed -> first point coordinates == last point coordinates)
+`{ 
+    "name" : "polygon1", 
+    "geo" : {
+        "coordinates" : [
+            [
+                [
+                    3.779, 
+                    9.276
+                ], 
+                [
+                    14.854, 
+                    15.115
+                ], 
+                [
+                    38.408, 
+                    17.309
+                ], 
+                [
+                    40.693, 
+                    7.711
+                ], 
+                [
+                    35.068, 
+                    -7.885
+                ], 
+                [
+                    5.889, 
+                    -9.622
+                ], 
+                [
+                    1.143, 
+                    -3.689
+                ], 
+                [
+                    3.779, 
+                    9.276
+                ]
+            ]
+        ], 
+        "type" : "Polygon"
+    }
+}`
