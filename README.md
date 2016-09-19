@@ -40,7 +40,7 @@ I made different changes to project's structure and added Polyline and Polygon s
     }
 }`
 
-#####LineString
+####LineString
 `{ 
     "name" : "linestring2",
     "geo" : {
