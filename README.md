@@ -24,6 +24,7 @@ I made different changes to project's structure and added Polyline and Polygon s
  - else: `npm start server.js`
 
 ###Remember to change `Google-Maps-Key` with yours.
+`<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=yourKey"></script>`
 
 ###Example of Geometry Objects
 
@@ -108,3 +109,6 @@ I made different changes to project's structure and added Polyline and Polygon s
         "type" : "Polygon"
     }
 }`
+
+
+###I provided an example collection `geometry-collection.json` that is possible to import through tools like `RoboMongo` or `MongoChef`.
