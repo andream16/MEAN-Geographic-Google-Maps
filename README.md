@@ -1,5 +1,5 @@
 # MEAN-Geographic-Google-Maps
-## DB Project for Data Bases 2 Exam
+## Using Google Maps + MEAN Stack to work with geometry Objects
 
 This project is essentially a fork of  @Ahmed Haque Making MEAN Apps with Google Maps available at https://github.com/afhaque/MeanMapAppV2.0
 
