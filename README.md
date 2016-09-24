@@ -3,6 +3,8 @@
 
 This project is essentially a fork of  @Ahmed Haque Making MEAN Apps with Google Maps available at https://github.com/afhaque/MeanMapAppV2.0
 
+If you have ever wondered about using Google Maps Api in a Mean Stack Application and using `geoSpatial Queries` in `MongoDB` you can take this project as an example to kickstart your next application.
+
 [![1.png](https://s18.postimg.org/hut102ppl/image.png)](https://postimg.org/image/h5a8npp5x/)
 [![2.png](https://s10.postimg.org/imux101rd/image.png)](https://postimg.org/image/bwefrkelh/)
 
