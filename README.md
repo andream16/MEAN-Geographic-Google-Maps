@@ -10,27 +10,27 @@ If you have ever wondered about using Google Maps Api in a Mean Stack Applicatio
 
 I made different changes to project's structure and added Polyline and Polygon support with some Geospatial Queries on the latter objects.
 
-###What you need to run the project:
+### What you need to run the project:
  - Node ~^4.4.7
  - NPM ~^2.15
  - MongoDB ~^3.2.7
  - Bower ~^1.7.9
 
-###How to install bower and npm packages:
+### How to install bower and npm packages:
  - Go on Project's folder
  - run: `bower install`
  - run: `npm install`
 
-###How to run the project:
+### How to run the project:
  - if you have nodemon: `nodemon server.js`
  - else: `npm start server.js`
 
-###Remember to change `Google-Maps-Key` with yours.
+### Remember to change `Google-Maps-Key` with yours.
 `<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=yourKey"></script>`
 
-###Example of Geometry Objects
+### Example of Geometry Objects
 
-####Point
+#### Point
 `{ 
     "name" : "point1",
     "geo" : {
@@ -42,7 +42,7 @@ I made different changes to project's structure and added Polyline and Polygon s
     }
 }`
 
-####LineString
+#### LineString
 `{ 
     "name" : "linestring2",
     "geo" : {
@@ -68,7 +68,7 @@ I made different changes to project's structure and added Polyline and Polygon s
     }
 }`
 
-####Polygon (it has to be closed -> first point coordinates == last point coordinates)
+#### Polygon (it has to be closed -> first point coordinates == last point coordinates)
 `{ 
     "name" : "polygon1", 
     "geo" : {
@@ -113,5 +113,5 @@ I made different changes to project's structure and added Polyline and Polygon s
 }`
 
 
-###MongoDB Collection
+### MongoDB Collection
 I provided an example collection `geometry-collection.json` that is possible to import through tools like `RoboMongo` or `MongoChef`.
